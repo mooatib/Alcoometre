@@ -1,0 +1,11 @@
+.profile-page{
+    width: 100%;
+    margin: 0;
+}
+
+.user-info{
+    position: relative;
+    color: white;
+    margin-left: 25px;
+    list-style-type: none;
+}

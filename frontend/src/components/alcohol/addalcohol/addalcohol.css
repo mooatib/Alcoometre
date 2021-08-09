@@ -1,0 +1,36 @@
+.add-alcohol-container{
+    position: relative;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.add-alcohol-form{
+    list-style-type: none;
+}
+
+.add-alcohol-form input{
+    background-color: rgba(0, 0, 0, 0.0);
+    border: none;
+}
+
+.alcohol-form-input{
+    visibility: hidden;
+    display: block;
+    margin-top: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+    text-align: center;
+}
+
+.add-alcohol-form button{
+    border: none;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+}

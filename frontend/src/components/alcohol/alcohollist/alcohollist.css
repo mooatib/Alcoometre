@@ -1,0 +1,23 @@
+.alcohol-list-container{
+    position: relative;
+    color: white;
+    margin-bottom: 40px;
+}
+.alcohol-list{
+    list-style-type: none;
+}
+.alcohol{
+    display: block;
+    margin-top: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+}
+.alcohol:hover{
+    animation: 0.5s ease-in-out anim-rotate2;
+}

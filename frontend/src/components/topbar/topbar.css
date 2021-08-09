@@ -1,0 +1,40 @@
+.topbar-container{
+    height: 60px;
+    width: 100%;
+    background: linear-gradient(135deg,rgba(253,29,29,1) 0%, rgba(131,58,180,1) 100%);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+.topbar-left{
+    flex: 1;
+}
+
+.logo{
+    font-size: 24px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.topbar-right{
+    flex: 1.75;
+    height: 40px;
+    margin-right: 5%;
+    color: rgba(131,58,180,1);
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 1px 1px 5px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topbar-right span{
+    font-weight: bold;
+    margin-right: 50px;
+    margin-left: 50px;
+}

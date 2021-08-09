@@ -1,0 +1,33 @@
+.background-container{
+    height: 1000px;
+    width: 100%;
+    background: linear-gradient(135deg,rgba(253,29,29,1) 0%, rgba(131,58,180,1) 100%);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+.background-container::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(135deg,rgba(131,58,180,1) 0%, rgba(253,29,29,1) 100%);
+    z-index: -1;
+    animation: 10s ease-in-out anim1;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim1{
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

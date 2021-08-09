@@ -1,0 +1,32 @@
+.user-list-container{
+    position: relative;
+    color: white;
+    margin-bottom: 40px;
+}
+.user-list{
+    list-style-type: none;
+}
+.user{
+    display: block;
+    margin-top: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+}
+.user:hover{
+    animation: 0.5s ease-in-out anim-rotate2;
+}
+.user img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    border: 2px solid rgba(255, 255, 255, 0.514);
+    margin-right: 5px;
+}
