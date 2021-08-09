@@ -1,3 +1,3 @@
 # Soûlac
 
-An app to track your alcohol consumption.
+An app to track your alcohol consumption. :beer:
