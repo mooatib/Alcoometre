@@ -14,29 +14,14 @@ router.get('/list', (req, res, next) => {
     })
 })
 
-router.post('/create', (req, res, next) => {
+router.post('/add', (req, res, next) => {
     var data = {
-        uid: req.query.uid,
-        drink: req.query.drink,
-        privacy: req.query.privacy
+        name: req.query.name,
+        type: req.query.type,
+        percentage: req.query.percentage
     }
-    const sql = ''
-    const params = [data.uid, data.drink]
-
-    db.run(sql, params, (err, result) => {
-        if (err) {
-            res.status(400).json({ "error": err.message })
-            return
-        }
-        res.json({
-            "data": result
-        })
-    })
-})
-router.post('/update', (req, res, next) => {
-    var data = {}
-    const sql = ''
-    const params = []
+    const sql = `INSERT INTO alcohol (name, type, percentage) VALUES (?,?,?)`
+    const params = [data.name, data.type, data.percentage]
 
     db.run(sql, params, (err, result) => {
         if (err) {
@@ -49,9 +34,11 @@ router.post('/update', (req, res, next) => {
     })
 })
 router.post('/delete', (req, res, next) => {
-    var data = {}
-    const sql = ''
-    const params = []
+    var data = {
+        aid: req.query.aid
+    }
+    const sql = `DELETE FROM alcohol WHERE aid = ?`
+    const params = [data.aid]
 
     db.run(sql, params, (err, result) => {
         if (err) {
