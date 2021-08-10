@@ -14,20 +14,20 @@ export default function UserInfo() {
                                 Bonjour {user.username} !
                             </p>
                         </li>
-                        <li>
+                        <li key={user.uid}>
                             <img alt="img" src={user.img} />
                         </li>
-                        <li>
+                        <li key={user.uid}>
                             <p>
                                 Masse : {user.weight}
                             </p>
                         </li>
-                        <li>
+                        <li key={user.uid}>
                             <p>
                                 Resistance : {user.resistance}
                             </p>
                         </li>
-                        <li>
+                        <li key={user.uid}>
                             <p>
                                 Grammes : {user.alcohol}
                             </p>

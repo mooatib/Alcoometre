@@ -1,30 +1,22 @@
 import './alcohollist.css'
-/* import {Person, List, Add } from '@material-ui/icons' */
-/* import { useSelector, useDispatch} from 'react-redux' */
-/* import { getAlcohol } from '../../actions/user.actions' */
+import { useSelector} from 'react-redux'
 
-export default function AlcoholList() {
-/*     const usersList = useSelector((state) => state.usersReducer) */
-/*     const dispatch = useDispatch()
-    
-    const handleClick = (user) => e => {
-        dispatch(getUser(user.uid))
-        history.push("/profil")
-    } */
+
+export default function AlcoholsList() {
+    const alcoholsList = useSelector((state) => state.alcoholsReducer)
 
     return (
         <div className="alcohol-list-container">
             <ul className="alcohol-list">
-{/*                 {usersList.map((user) => {
+                {alcoholsList.map((alcohol) => {
                     return (
-                        <li className="user" key={user.uid}>
-                            <p onClick={handleClick(user)}>
-                                <img alt="avatar" src={user.img}/>
-                                {user.username}
-                            </p>
+                        <li className="alcohol" key={alcohol.aid}>
+                            <p>{alcohol.name}</p>
+                            <p>{alcohol.type}</p>
+                            <p>{alcohol.percentage}</p>
                         </li>
                     )
-                })} */}
+                })}
             </ul>
         </div>
     )

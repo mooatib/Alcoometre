@@ -12,12 +12,18 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import rootReducer from './reducers'
 import { getUsers } from './actions/users.actions';
+import { getAlcohols } from './actions/alcohols.action';
+import { getDrinks } from './actions/drinks.actions';
+import { getUserDrinks } from './actions/userdrinks.actions';
 
 const store = createStore(
   rootReducer, composeWithDevTools(applyMiddleware(thunk, logger))
 )
 
 store.dispatch(getUsers())
+store.dispatch(getAlcohols())
+store.dispatch(getDrinks())
+store.dispatch(getUserDrinks())
 
 ReactDOM.render(
   <Provider store={store}>

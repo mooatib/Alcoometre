@@ -1,5 +1,4 @@
 import './userlist.css'
-/* import {Person, List, Add } from '@material-ui/icons' */
 import { useSelector, useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getUser } from '../../actions/user.actions'

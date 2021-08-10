@@ -9,9 +9,8 @@ router.get('/list', (req, res, next) => {
             res.status(400).json({ "error": err.message })
             return
         }
-        res.json({
-            "data": result
-        })
+        const array = JSON.parse(JSON.stringify(result))
+        res.status(200).send(array)
     })
 })
 
