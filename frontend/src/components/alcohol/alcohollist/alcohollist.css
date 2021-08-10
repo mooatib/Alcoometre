@@ -24,7 +24,7 @@
     margin-right: 20px;
 }
 .alcohol-list li:hover{
-    animation: 0.5s ease-in-out anim-rotate2;
+    animation: 0.5s ease-in-out anim-translate1;
 }
 .alcohol-percent {
     font-style: italic;

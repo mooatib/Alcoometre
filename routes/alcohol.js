@@ -33,6 +33,7 @@ router.post('/add', (req, res, next) => {
         })
     })
 })
+
 router.post('/delete', (req, res, next) => {
     var data = {
         aid: req.query.aid
