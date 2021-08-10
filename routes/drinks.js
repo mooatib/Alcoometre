@@ -15,7 +15,7 @@ router.get('/list', (req, res, next) => {
     })
 })
 
-router.get('/userDrinks', (req, res, next) => {
+router.get('/userdrinks', (req, res, next) => {
     var data = {
         uid: req.query.uid
     }
