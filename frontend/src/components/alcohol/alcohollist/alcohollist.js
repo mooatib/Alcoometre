@@ -8,9 +8,9 @@ export default function AlcoholsList() {
 
     function alcoholType(type) {
         if(type === '0')
-            return <TiBeer/>
+            return <TiBeer size="40px"/>
         else
-            return <FaCocktail/>
+            return <FaCocktail size="40"/>
     }
     return (
         <div className="alcohol-list-container">
@@ -19,8 +19,8 @@ export default function AlcoholsList() {
                     return (
                         <li key={alcohol.aid}>
                             <p>{alcoholType(alcohol.type)}</p>
-                            <p>{alcohol.name}</p>
-                            <p>{alcohol.percentage}%</p>
+                            <p className="alcohol-name">{alcohol.name}</p>
+                            <p className="alcohol-percent">{alcohol.percentage}%</p>
                         </li>
                     )
                 })}
