@@ -4,7 +4,7 @@
     background: linear-gradient(135deg,rgba(253,29,29,1) 0%, rgba(131,58,180,1) 100%);
     display: flex;
     align-items: center;
-    position: sticky;
+    position: fixed;
     z-index: 2;
     top: 0;
 }
