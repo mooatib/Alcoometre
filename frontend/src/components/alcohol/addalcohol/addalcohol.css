@@ -44,6 +44,9 @@
     background-color: rgba(66, 28, 28, 0);
     transition: transform 1s;
 }
+.react-icons{
+    cursor: pointer;
+}
 
 .add-alcohol-form:hover{
     max-height: 500px;

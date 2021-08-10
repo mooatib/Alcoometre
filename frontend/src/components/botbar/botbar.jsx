@@ -2,7 +2,7 @@ import './botbar.css'
 import { ImTrophy } from 'react-icons/im'
 import { FaBeer, FaHome } from 'react-icons/fa'
 import { IoPodium } from 'react-icons/io5'
-import {HiUserGroup} from 'react-icons/hi'
+import { HiUserGroup } from 'react-icons/hi'
 import { useHistory } from 'react-router-dom'
 
 export default function Botbar() {

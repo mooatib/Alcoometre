@@ -1,29 +1,38 @@
 import './addalcohol.css'
 import { Add } from '@material-ui/icons'
+import { TiBeer } from 'react-icons/ti'
+import { FaCocktail } from 'react-icons/fa'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addAlcohol } from '../../../actions/alcohols.action'
 
 export default function AddAlcohol() {
     const [nameInput, setNameInput] = useState('')
     const [typeInput, setTypeInput] = useState('')
     const [percentageInput, setPercentageInput] = useState('')
+    const dispatch = useDispatch()
 
     const handleClick = () => {
-        if (!nameInput || !typeInput || !percentageInput)
+        if (!nameInput || (typeInput !== 0 && typeInput !== 1) || !percentageInput) {
             alert("Veuillez remplir entierement le formulaire !")
+        }
+        else
+            dispatch(addAlcohol(nameInput, typeInput, percentageInput))
+
     }
 
-    const handleChange = (label) => (e) => {
+    const handleChange = (label, type) => (e) => {
         switch (label) {
             case "nom":
                 setNameInput(e.target.value);
                 break;
             case "type":
-                setTypeInput(e.target.value);
+                setTypeInput(type);
                 break;
             case "pourcentage":
                 setPercentageInput(e.target.value);
                 break;
-            default :
+            default:
         }
     }
     return (
@@ -36,10 +45,8 @@ export default function AddAlcohol() {
                 </div>
                 <div>
                     <label for="type">Type :</label>
-                    <select onChange={handleChange("type")}>
-                        <option value="0">Bière</option>
-                        <option value="1">Alcool fort</option>
-                    </select>
+                    <TiBeer size="28px" className="react-icons" onClick={handleChange("type", 0)} />
+                    <FaCocktail size="28px" className="react-icons" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
                     <label for="percent">Pourcentage :</label>
