@@ -12,6 +12,7 @@ export default function AlcoholsList() {
         else
             return <FaCocktail size="40"/>
     }
+
     return (
         <div className="alcohol-list-container">
             <ul className="alcohol-list">

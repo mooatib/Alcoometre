@@ -5,6 +5,7 @@ import { FaCocktail } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addAlcohol } from '../../../actions/alcohols.action'
+import { getAlcohols } from '../../../actions/alcohols.action'
 
 export default function AddAlcohol() {
     const [nameInput, setNameInput] = useState('')
@@ -16,9 +17,10 @@ export default function AddAlcohol() {
         if (!nameInput || (typeInput !== 0 && typeInput !== 1) || !percentageInput) {
             alert("Veuillez remplir entierement le formulaire !")
         }
-        else
+        else{
             dispatch(addAlcohol(nameInput, typeInput, percentageInput))
-
+            dispatch(getAlcohols())
+        }
     }
 
     const handleChange = (label, type) => (e) => {
@@ -40,16 +42,16 @@ export default function AddAlcohol() {
             <div className="add-alcohol-form">
                 <button name="Voir" type="button"><Add /></button>
                 <div>
-                    <label for="name">Nom :</label>
+                    <label htmlFor="name">Nom :</label>
                     <input type="text" onChange={handleChange("nom")} />
                 </div>
                 <div>
-                    <label for="type">Type :</label>
+                    <label htmlFor="type">Type :</label>
                     <TiBeer size="28px" className="react-icons" onClick={handleChange("type", 0)} />
                     <FaCocktail size="28px" className="react-icons" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
-                    <label for="percent">Pourcentage :</label>
+                    <label htmlFor="percent">Pourcentage :</label>
                     <input type="number" onChange={handleChange("pourcentage")} />
                 </div>
                 <div>
