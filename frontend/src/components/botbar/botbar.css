@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 .botbar-icon-item:hover{
-    animation: 0.5s ease-in-out anim-rotate1;
+    animation: 0.5s ease-in-out anim-translate1;
 }
 
 .botbar-img{

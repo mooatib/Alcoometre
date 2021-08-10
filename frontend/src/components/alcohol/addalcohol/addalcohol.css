@@ -33,19 +33,27 @@
     visibility: hidden;
     opacity: 0;
     margin-bottom: 10px;
-    transition: visibility, opacity, 0.5s ease-in-out 0.2s;
+    transition: visibility, opacity, 0.5s ease-in-out 0.15s;
 }
 .add-alcohol-form button{
-    width: 80%;
     border: none;
     color: white;
     text-decoration: none;
+    opacity: 0;
     cursor: pointer;
     background-color: rgba(66, 28, 28, 0);
-    transition: transform 1s;
+    transition: transform, opacity, 0.5s ease-in-out 0.15s;
 }
-.react-icons{
+#0, #1{
     cursor: pointer;
+    opacity: 50%;
+}
+.selected{
+    opacity: 100%;
+}
+.not-selected{
+    cursor: pointer;
+    opacity: 50%;
 }
 
 .add-alcohol-form:hover{
@@ -55,6 +63,12 @@
     visibility: visible;
     opacity: 100%;
 }
+.add-alcohol-form:hover a{
+    transform: rotate(+180deg);
+}
 .add-alcohol-form:hover button{
-    transform: rotate(+90deg);
+    opacity: 100%;
+}
+.add-alcohol-form button:hover {
+    animation: 0.5s ease-in-out anim-translate1;
 }

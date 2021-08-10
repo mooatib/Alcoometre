@@ -13,11 +13,12 @@ export default function AddAlcohol() {
     const [percentageInput, setPercentageInput] = useState('')
     const dispatch = useDispatch()
 
+
     const handleClick = () => {
         if (!nameInput || (typeInput !== 0 && typeInput !== 1) || !percentageInput) {
             alert("Veuillez remplir entierement le formulaire !")
         }
-        else{
+        else {
             dispatch(addAlcohol(nameInput, typeInput, percentageInput))
             dispatch(getAlcohols())
         }
@@ -30,6 +31,14 @@ export default function AddAlcohol() {
                 break;
             case "type":
                 setTypeInput(type);
+                if(type === 0){
+                    document.getElementById('0').setAttribute("class", "selected")
+                    document.getElementById('1').setAttribute("class", "not-selected")
+                }
+                else{
+                    document.getElementById('0').setAttribute("class", "not-selected")
+                    document.getElementById('1').setAttribute("class", "selected")
+                }
                 break;
             case "pourcentage":
                 setPercentageInput(e.target.value);
@@ -40,23 +49,21 @@ export default function AddAlcohol() {
     return (
         <div className="add-alcohol-container">
             <div className="add-alcohol-form">
-                <button name="Voir" type="button"><Add /></button>
+                <t><Add /></t>
                 <div>
                     <label htmlFor="name">Nom :</label>
                     <input type="text" onChange={handleChange("nom")} />
                 </div>
                 <div>
                     <label htmlFor="type">Type :</label>
-                    <TiBeer size="28px" className="react-icons" onClick={handleChange("type", 0)} />
-                    <FaCocktail size="28px" className="react-icons" onClick={handleChange("type", 1)} />
+                    <TiBeer size="28px" id="0"  onClick={handleChange("type", 0)} />
+                    <FaCocktail size="28px" id="1" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
                     <label htmlFor="percent">Pourcentage :</label>
                     <input type="number" onChange={handleChange("pourcentage")} />
                 </div>
-                <div>
-                    <button type="button" name="Ajouter" onClick={handleClick}><Add /></button>
-                </div>
+                <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add/></button>
             </div>
         </div>
     )

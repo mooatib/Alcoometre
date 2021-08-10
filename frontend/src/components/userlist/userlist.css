@@ -19,7 +19,7 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
 }
 .user:hover{
-    animation: 0.5s ease-in-out anim-rotate2;
+    animation: 0.5s ease-in-out anim-translate1;
 }
 .user img{
     width: 32px;
