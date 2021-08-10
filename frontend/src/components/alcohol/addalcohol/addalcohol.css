@@ -1,36 +1,56 @@
 .add-alcohol-container{
+    display: flex;
     position: relative;
     color: white;
     margin-bottom: 40px;
+    justify-content: center;
 }
-
 .add-alcohol-form{
-    list-style-type: none;
-}
-
-.add-alcohol-form input{
-    background-color: rgba(0, 0, 0, 0.0);
-    border: none;
-}
-
-.alcohol-form-input{
-    visibility: hidden;
+    max-height: 25px;
     display: block;
-    margin-top: 20px;
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+    background-color: rgba(0, 0, 0, 0.301);
     padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.301);
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
     text-align: center;
+    transition: max-height 1s ease-in-out;
 }
 
+.add-alcohol-form input{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.322);
+    border: none;
+}
+
+.add-alcohol-form div{
+    text-align: left;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    margin-bottom: 10px;
+    transition: visibility, opacity, 0.5s ease-in-out 0.2s;
+}
 .add-alcohol-form button{
+    width: 80%;
     border: none;
     color: white;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    background-color: rgba(66, 28, 28, 0);
+    transition: transform 1s;
+}
+
+.add-alcohol-form:hover{
+    max-height: 500px;
+}
+.add-alcohol-form:hover div{
+    visibility: visible;
+    opacity: 100%;
+}
+.add-alcohol-form:hover button{
+    transform: rotate(+90deg);
 }
