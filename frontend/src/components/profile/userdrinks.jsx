@@ -1,5 +1,5 @@
 import './userinfo.css'
-import { useSelector, useDispatch } from "react-redux"
+/* import { useSelector, useDispatch } from "react-redux" */
 
 export default function UserDrinks() {
 /*     const userDrinks = useSelector((state) => state.userDrinkReducer)

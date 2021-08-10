@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     color: rgba(131,58,180,1);
+    align-items: center;
 }
 .logo{
     font-size: 24px;
@@ -17,24 +18,8 @@
     color: white;
     cursor: pointer;
 }
-.botbar-left{
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
-.botbar-center{
-    display: flex;
-    align-items: center;
-    flex: 3;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-.botbar-right{
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
 .botbar-icon-item{
+    display: flex;
     margin-right: 20px;
     margin-left: 20px;
     cursor: pointer;
@@ -42,6 +27,7 @@
 .botbar-icon-item:hover{
     animation: 0.5s ease-in-out anim-rotate1;
 }
+
 .botbar-img{
     width: 45px;
     height: 45px;

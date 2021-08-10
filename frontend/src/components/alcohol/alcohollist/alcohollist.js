@@ -1,6 +1,6 @@
 import './alcohollist.css'
 /* import {Person, List, Add } from '@material-ui/icons' */
-import { useSelector, useDispatch} from 'react-redux'
+/* import { useSelector, useDispatch} from 'react-redux' */
 /* import { getAlcohol } from '../../actions/user.actions' */
 
 export default function AlcoholList() {

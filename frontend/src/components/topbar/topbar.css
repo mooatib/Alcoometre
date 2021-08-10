@@ -10,18 +10,6 @@
 }
 
 .topbar-left{
-    flex: 1;
-}
-
-.logo{
-    font-size: 24px;
-    margin-left: 10px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-}
-
-.topbar-right{
     flex: 1.75;
     height: 40px;
     margin-right: 5%;
@@ -32,9 +20,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
+}
+
+.topbar-left span{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(131,58,180,1);
+    cursor: pointer;
+}
+
+.topbar-right{
+    flex: 2.5;
 }
 .topbar-right span{
+    font-size: large;
+    color: white;
     font-weight: bold;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 30px;
+    margin-left: 30px;
 }

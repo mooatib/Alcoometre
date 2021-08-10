@@ -1,9 +1,8 @@
 import './userinfo.css'
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 
 export default function UserInfo() {
     const userInfo = useSelector((state) => state.userReducer)
-    const dispatch = useDispatch()
 
     return (
         <ul className="user-info">

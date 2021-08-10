@@ -1,8 +1,10 @@
-import Topbar from "../../components/topbar/topbar"
-import Botbar from "../../components/botbar/botbar"
+import './gp.css'
+import UserList from "../../components/userlist/userlist"
 
 export default function Group() {
     return (
-        <div className="group"></div>
+        <div className="group">
+            <UserList />
+        </div>
     )
 }
