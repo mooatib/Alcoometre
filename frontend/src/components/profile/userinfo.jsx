@@ -1,7 +1,7 @@
 import './userinfo.css'
 import { useSelector } from "react-redux"
 import {GiWeight, GiWeightLiftingUp} from 'react-icons/gi'
-import {BsGraphUp, BsGraphDown} from 'react-icons/bs'
+/* import {BsGraphUp, BsGraphDown} from 'react-icons/bs' */
 import {IoWater} from 'react-icons/io5'
 
 

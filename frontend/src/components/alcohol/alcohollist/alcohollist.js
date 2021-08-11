@@ -10,7 +10,7 @@ export default function AlcoholsList() {
     const alcoholsList = useSelector((state) => state.alcoholsReducer)
     const dispatch = useDispatch()
 
-    const handleClickfff = (aid) => e => {
+    const handleClick = (aid) => e => {
         dispatch(deleteAlcohol(aid))
         dispatch(getAlcohols())
     }
@@ -26,21 +26,18 @@ export default function AlcoholsList() {
         <div className="alcohol-list-container">
             <ul className="alcohol-list">
                 {alcoholsList.map((alcohol) => {
-                    console.log(alcohol.name)
                     if(!alcohol.hidden){
                         return (
                             <li key={alcohol.aid}>
                                 <p>{alcoholType(alcohol.type)}</p>
                                 <p className="alcohol-name">{alcohol.name}</p>
                                 <p className="alcohol-percent">{alcohol.percentage}%</p>
-                                <p onClick={handleClickfff(alcohol.aid)} ><Delete/></p>
+                                <p onClick={handleClick(alcohol.aid)} ><Delete/></p>
                             </li>
                         )
                     }
                     else
-                        return (
-                            <p/>
-                        )
+                        return <p/>
                 })}
             </ul>
         </div>

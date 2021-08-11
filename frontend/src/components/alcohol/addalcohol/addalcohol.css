@@ -20,7 +20,9 @@
 }
 
 .add-alcohol-form input{
-    width: 100%;
+    width: 80%;
+    height: 30px;
+    border-radius: 15px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.322);
     border: none;
@@ -28,7 +30,6 @@
 }
 
 .add-alcohol-form div{
-    text-align: left;
     display: block;
     visibility: hidden;
     opacity: 0;
@@ -68,7 +69,4 @@
 }
 .add-alcohol-form:hover button{
     opacity: 100%;
-}
-.add-alcohol-form button:hover {
-    animation: 0.5s ease-in-out anim-translate1;
 }

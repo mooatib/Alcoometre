@@ -29,8 +29,10 @@
 .alcohol-percent {
     font-style: italic;
     font-weight: bold;
-    color :rgb(255, 255, 255)
+    color :rgb(255, 255, 255);
+    flex: 1;
 }
 .alcohol-name {
     font-style: italic;
+    flex: 4;
 }

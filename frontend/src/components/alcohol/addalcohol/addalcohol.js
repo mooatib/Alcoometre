@@ -51,16 +51,13 @@ export default function AddAlcohol() {
             <div className="add-alcohol-form">
                 <t><Add /></t>
                 <div>
-                    <label htmlFor="name">Nom :</label>
-                    <input type="text" onChange={handleChange("nom")} />
+                    <input type="text" value="Saisir un nom" onChange={handleChange("nom")} />
                 </div>
                 <div>
-                    <label htmlFor="type">Type :</label>
                     <TiBeer size="28px" id="0"  onClick={handleChange("type", 0)} />
                     <FaCocktail size="28px" id="1" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
-                    <label htmlFor="percent">Pourcentage :</label>
                     <input type="number" onChange={handleChange("pourcentage")} />
                 </div>
                 <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add/></button>
