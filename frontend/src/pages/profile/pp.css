@@ -9,8 +9,8 @@
 
 .profile-page > li{
     position: relative;
+    padding-left: 5px;
     padding: 2px;
-    padding-left: 0px;
     padding-right: 10px;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.301);
