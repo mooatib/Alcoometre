@@ -18,14 +18,17 @@ export default function AlcoholsList() {
         <div className="alcohol-list-container">
             <ul className="alcohol-list">
                 {alcoholsList.map((alcohol) => {
-                    return (
-                        <li key={alcohol.aid}>
-                            <p>{alcoholType(alcohol.type)}</p>
-                            <p className="alcohol-name">{alcohol.name}</p>
-                            <p className="alcohol-percent">{alcohol.percentage}%</p>
-                            <Delete/>
-                        </li>
-                    )
+                    console.log(alcohol.name)
+                    if(!alcohol.hidden){
+                        return (
+                            <li key={alcohol.aid}>
+                                <p>{alcoholType(alcohol.type)}</p>
+                                <p className="alcohol-name">{alcohol.name}</p>
+                                <p className="alcohol-percent">{alcohol.percentage}%</p>
+                                <Delete/>
+                            </li>
+                        )
+                    }
                 })}
             </ul>
         </div>

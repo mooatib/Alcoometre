@@ -20,7 +20,7 @@ router.post('/add', (req, res, next) => {
         type: req.query.type,
         percentage: req.query.percentage
     }
-    const sql = `INSERT INTO alcohol (name, type, percentage) VALUES (?,?,?)`
+    const sql = `INSERT INTO alcohol (name, type, percentage, hidden) VALUES (?,?,?,0)`
     const params = [data.name, data.type, data.percentage]
 
     db.run(sql, params, (err, result) => {
@@ -34,11 +34,11 @@ router.post('/add', (req, res, next) => {
     })
 })
 
-router.post('/delete', (req, res, next) => {
+router.post('/update', (req, res, next) => {
     var data = {
-        aid: req.query.aid
+        aid: req.query.aid,
     }
-    const sql = `DELETE FROM alcohol WHERE aid = ?`
+    const sql = `UPDATE alcohol SET hidden = 1 WHERE aid = ?`
     const params = [data.aid]
 
     db.run(sql, params, (err, result) => {
