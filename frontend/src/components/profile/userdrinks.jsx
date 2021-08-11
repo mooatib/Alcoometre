@@ -7,6 +7,7 @@ export default function UserDrinks() {
 
     return (
         <ul className="user-drinks">
+            <p>user drinks</p>
 {/*             {userDrinks.map((user) => {
                 return (
                     <div>
