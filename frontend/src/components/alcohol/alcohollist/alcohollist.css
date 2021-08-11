@@ -5,6 +5,13 @@
 }
 .alcohol-list{
     list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ul{
+    padding: 0px 0px 0px 0px;
 }
 .alcohol-list li{
     display: flex;
@@ -18,7 +25,8 @@
     cursor: pointer;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
     align-items: center;
-    justify-content: left;
+    justify-content: center;
+    
 }
 .alcohol-list p{
     margin-right: 20px;
