@@ -18,7 +18,7 @@ export default function Profil() {
             <li><AddDrink/></li>
             <h2><FaCocktail/> Consommations</h2>
             <li><UserDrinks/></li>
-            <h2><ImTrophy/> Trophés</h2>
+            <h2><ImTrophy/> Trophées</h2>
             <li><UserTrophy/></li>
         </ul>
     )

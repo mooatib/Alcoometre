@@ -26,7 +26,7 @@ export default function Botbar() {
             <div className="botbar-icon-item" title="Classement" onClick={handleClick("/classement")}>
                 <IoPodium size="32px" />
             </div>
-            <div className="botbar-icon-item" title="Trophés" onClick={handleClick("/trophes")}>
+            <div className="botbar-icon-item" title="Trophées" onClick={handleClick("/trophes")}>
                 <ImTrophy size="32px" />
             </div>
         </div>

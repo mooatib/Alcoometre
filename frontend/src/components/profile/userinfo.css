@@ -1,12 +1,21 @@
-.user-info{
-
-}
-.user-info-list{
+ul{
     list-style-type: none;
 }
+.user-info-list{
+    display: flex;
+}
+.user-info-list p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-style: italic;
+}
 .user-info-list img{
+    position: absolute;
+    top: -0px;
+    left: -25px;
     width: 64px;
 }
-.user-info-list li{
 
+.user-info-list img:hover{
+    animation: normal 1s anim-rotate1;
 }

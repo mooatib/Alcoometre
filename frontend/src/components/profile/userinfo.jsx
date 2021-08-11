@@ -1,5 +1,9 @@
 import './userinfo.css'
 import { useSelector } from "react-redux"
+import {GiWeight, GiWeightLiftingUp} from 'react-icons/gi'
+import {BsGraphUp, BsGraphDown} from 'react-icons/bs'
+import {IoWater} from 'react-icons/io5'
+
 
 export default function UserInfo() {
     const userInfo = useSelector((state) => state.userReducer)
@@ -8,30 +12,32 @@ export default function UserInfo() {
         <div className="user-info">
             {userInfo.map((user) => {
                 return (
-                    <ul className="user-info-list" key={user.uid}>
+                    <ul key={user.uid}>
                         <li>
-                            <p className="greetings">
+                            <h3 className="greetings">
                                 Bonjour {user.username} !
-                            </p>
+                            </h3>
                         </li>
-                        <li>
-                            <img alt="img" src={user.img} />
-                        </li>
-                        <li >
-                            <p>
-                                Masse : {user.weight}
-                            </p>
-                        </li>
-                        <li >
-                            <p>
-                                Resistance : {user.resistance}
-                            </p>
-                        </li>
-                        <li >
-                            <p>
-                                Grammes : {user.alcohol}
-                            </p>
-                        </li>
+                        <div className="user-info-list">
+                            <li>
+                                <img alt="img" src={user.img} />
+                            </li>
+                            <li>
+                                <p>
+                                    <GiWeight size="20px"/> {user.weight} Kg
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                <GiWeightLiftingUp size="20px"/> {user.resistance}
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                <IoWater size="20px"/> {user.alcohol} g/L
+                                </p>
+                            </li>
+                        </div>
                     </ul>
                 )
             })}
