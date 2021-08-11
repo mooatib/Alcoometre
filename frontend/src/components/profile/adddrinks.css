@@ -1,28 +1,19 @@
 .add-drink-form{
     display: block;
-    margin-top: 10px;
     text-align: center;
 }
-.add-drink-form select{
-    height: 30px;
-    border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.322);
-    color: white;
-    border: none;
+.option{
     width: 80%;
     text-align-last: center;
     text-align: center;
-}
-.add-drink-form option{
-    background-color: rgba(0, 0, 0, 0.233);
-    color: white;
+
 }
 .add-drink-form > div{
     margin-top: 20px;
     margin-bottom: 50px;
 }
 .strong-drinks{
-    visibility: hidden;
+    visibility: visible;
     max-height: 0;
 }
 .beers{

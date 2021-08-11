@@ -4,7 +4,7 @@ const path = require.path
 require('dotenv').config({path:'./config/.env' })
 
 var corsOptions = {
-    origin: 'http://81.250.83.25:3000',
+    origin: ['http://81.250.83.25:3000', 'http://84.7.175.27:3000'],
     optionsSuccessStatus: 200,
     credentials: true
 }

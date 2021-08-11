@@ -51,7 +51,7 @@ export default function AddAlcohol() {
             <div className="add-alcohol-form">
                 <t><Add /></t>
                 <div>
-                    <input type="text" value="Saisir un nom" onChange={handleChange("nom")} />
+                    <input type="text" placeholder="Saisir un nom :" onChange={handleChange("nom")} />
                 </div>
                 <div>
                     <TiBeer size="28px" id="0"  onClick={handleChange("type", 0)} />
