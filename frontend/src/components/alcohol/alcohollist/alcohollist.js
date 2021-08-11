@@ -1,11 +1,19 @@
 import './alcohollist.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { TiBeer } from 'react-icons/ti'
 import { FaCocktail } from 'react-icons/fa'
 import { Delete } from '@material-ui/icons'
+import { deleteAlcohol } from '../../../actions/alcohols.action'
+import { getAlcohols } from '../../../actions/alcohols.action'
 
 export default function AlcoholsList() {
     const alcoholsList = useSelector((state) => state.alcoholsReducer)
+    const dispatch = useDispatch()
+
+    const handleClickfff = (aid) => e => {
+        dispatch(deleteAlcohol(aid))
+        dispatch(getAlcohols())
+    }
 
     function alcoholType(type) {
         if (type === '0')
@@ -25,10 +33,14 @@ export default function AlcoholsList() {
                                 <p>{alcoholType(alcohol.type)}</p>
                                 <p className="alcohol-name">{alcohol.name}</p>
                                 <p className="alcohol-percent">{alcohol.percentage}%</p>
-                                <Delete/>
+                                <p onClick={handleClickfff(alcohol.aid)} ><Delete/></p>
                             </li>
                         )
                     }
+                    else
+                        return (
+                            <p/>
+                        )
                 })}
             </ul>
         </div>
