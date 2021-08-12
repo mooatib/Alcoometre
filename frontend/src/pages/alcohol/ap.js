@@ -2,12 +2,14 @@
 import './ap.css'
 import AddAlcohol from '../../components/alcohol/addalcohol/addalcohol'
 import AlcoholsList from '../../components/alcohol/alcohollist/alcohollist'
+import { MdAdd } from 'react-icons/md'
 
 export default function Alcohol() {
     return (
-        <div className="drinks">
-            <AlcoholsList/>
-            <AddAlcohol/>
-        </div>
+        <ul className="alcohol-page">
+            <AlcoholsList />
+            <h2><MdAdd /> Ajouter une boisson</h2>
+            <li><AddAlcohol /></li>
+        </ul>
     )
 }

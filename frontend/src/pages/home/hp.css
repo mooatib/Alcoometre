@@ -1,0 +1,22 @@
+.home-page{
+    display: block;
+    color: white;
+    list-style-type: none;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 40px;
+}
+
+.home-page > li{
+    position: relative;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.301);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+    border-radius: 5px;
+}
+.home-page > h2{
+    position: relative;
+}

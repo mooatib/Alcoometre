@@ -8,19 +8,11 @@
 .add-alcohol-form{
     max-height: 25px;
     display: block;
-    width: 80%;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
-    background-color: rgba(0, 0, 0, 0.301);
-    padding: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
     text-align: center;
     transition: max-height 1s ease-in-out;
 }
 
 .add-alcohol-form input{
-    width: 80%;
     height: 30px;
     border-radius: 15px;
     text-align: center;

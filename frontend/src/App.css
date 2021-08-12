@@ -27,6 +27,11 @@
 .App-link {
   color: #61dafb;
 }
+
+ul{
+  list-style-type: none;
+}
+
 button{
   border: none;
   color: white;
@@ -35,9 +40,10 @@ button{
   background-color: rgba(66, 28, 28, 0);
   transition: transform, 0.5s ease-in-out 0.15s;
   }
-  button:hover {
-      animation: 0.5s ease-in-out anim-translate1;
-  }
+
+button:hover {
+    animation: 0.5s ease-in-out anim-translate1;
+}
 
 @keyframes App-logo-spin {
   from {
