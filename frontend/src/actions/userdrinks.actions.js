@@ -7,7 +7,7 @@ export const DELETE_USER_DRINK = "DELETE_USER_DRINK"
 export const getUserDrinks = (uid) => {
     return (dispatch) => {
         return axios
-            .get(`${process.env.REACT_APP_API_URL}api/userdrinks/?uid=${uid}`)
+            .get(`${process.env.REACT_APP_API_URL}api/drinks/userlist?uid=${uid}`)
             .then((res) => {
                 dispatch({ type: GET_USER_DRINKS, payload: res.data })
             })
@@ -17,7 +17,7 @@ export const getUserDrinks = (uid) => {
 export const addUserDrink = (uid, aid, quantity) => {
     return (dispatch) => {
         return axios
-            .post(`${process.env.REACT_APP_API_URL}api/userdrinks/?uid=${uid}&aid=${aid}&quantity=${quantity}`)
+            .post(`${process.env.REACT_APP_API_URL}api/drinks/add?uid=${uid}&aid=${aid}&quantity=${quantity}`)
             .then((res) => {
                 dispatch({ type: ADD_USER_DRINK, payload: res.data })
             })
@@ -27,7 +27,7 @@ export const addUserDrink = (uid, aid, quantity) => {
 export const deleteUserDrink = (did) => {
     return (dispatch) => {
         return axios
-            .post(`${process.env.REACT_APP_API_URL}api/userdrinks/?did=${did}`)
+            .post(`${process.env.REACT_APP_API_URL}api/drinks/delete?did=${did}`)
             .then((res) => {
                 dispatch({ type: DELETE_USER_DRINK, payload: res.data })
             })
