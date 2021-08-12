@@ -2,7 +2,9 @@ const router = require('express').Router()
 const db = require('../db/db.js')
 
 router.get('/list', (req, res, next) => {
-    const sql = `SELECT * FROM drinks`
+    const sql = `SELECT img, username, name, type, quantity, date from users
+                JOIN drinks ON drinks.uid = users.uid
+                JOIN alcohol ON drinks.aid = alcohol.aid`
     const params = []
     db.all(sql, params, (err, result) => {
         if (err) {
@@ -18,7 +20,10 @@ router.get('/userlist', (req, res, next) => {
     var data = {
         uid: req.query.uid
     }
-    const sql = `SELECT * FROM drinks WHERE uid = ?`
+    const sql = `SELECT name, type, quantity, date from users
+                JOIN drinks ON drinks.uid = users.uid
+                JOIN alcohol ON drinks.aid = alcohol.aid
+                WHERE drinks.uid = ?`
     const params = [data.uid]
     db.all(sql, params, (err, result) => {
         if (err) {

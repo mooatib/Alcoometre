@@ -8,6 +8,17 @@ export default function UserDrinks() {
     const userDrinks = useSelector((state) => state.userDrinksReducer)
     const dispatch = useDispatch()
 
+    const renderType = (type) =>{
+        if(type === '0')
+            return(
+                <TiBeer size="28px"/>
+            )
+        else
+            return(
+                <FaCocktail size="28px"/>
+            )
+    }
+
     const handleClick = (did) => e => {
         dispatch()
         dispatch()
@@ -25,7 +36,8 @@ export default function UserDrinks() {
                 {userDrinks.map((drink) => {
                     return (
                         <li className="drinks" key={drink.did}>
-                            <p>{drink.aid}</p>
+                            <p>{renderType(drink.type)}</p>
+                            <p>{drink.name}</p>
                             <p>{drink.quantity}cl</p>
                             <p>{dateConvert(drink.date)}</p>
                             <p onClick={handleClick(drink.did)} ><Delete/></p>

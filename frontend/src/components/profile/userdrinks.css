@@ -4,7 +4,7 @@
 .user-drinks{
     display: block;
 }
-.drinks{
+.user-drinks .drinks{
     justify-content: space-between;
     display: flex;
 }

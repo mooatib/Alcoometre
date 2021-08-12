@@ -7,7 +7,7 @@ import { MdAdd } from 'react-icons/md'
 export default function Alcohol() {
     return (
         <ul className="alcohol-page">
-            <AlcoholsList />
+            <li><AlcoholsList /></li>
             <h2><MdAdd /> Ajouter une boisson</h2>
             <li><AddAlcohol /></li>
         </ul>

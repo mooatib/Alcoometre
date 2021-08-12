@@ -9,17 +9,9 @@
 .alcohol-list li{
     display: flex;
     margin-top: 20px;
-    padding: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.301);
-    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
     align-items: center;
     justify-content: left;
-    
 }
 .alcohol-list p{
     margin-right: 20px;
