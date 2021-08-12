@@ -8,7 +8,6 @@ import { addAlcohol } from '../../../actions/alcohols.action'
 import { getAlcohols } from '../../../actions/alcohols.action'
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 export default function AddAlcohol() {
@@ -35,11 +34,11 @@ export default function AddAlcohol() {
                 break;
             case "type":
                 setTypeInput(type);
-                if(type === 0){
+                if (type === 0) {
                     document.getElementById('0').setAttribute("class", "selected")
                     document.getElementById('1').setAttribute("class", "not-selected")
                 }
-                else{
+                else {
                     document.getElementById('0').setAttribute("class", "not-selected")
                     document.getElementById('1').setAttribute("class", "selected")
                 }
@@ -52,38 +51,39 @@ export default function AddAlcohol() {
     }
 
     const useStyles = makeStyles((theme) => ({
-    
-      }));
+
+    }));
 
     const PrettoSlider = withStyles({
         root: {
-          color: '#52af77',
-          height: 8,
+            color: 'white',
+            height: 8,
         },
         thumb: {
-          height: 24,
-          width: 24,
-          backgroundColor: '#fff',
-          border: '2px solid currentColor',
-          marginTop: -8,
-          marginLeft: -12,
-          '&:focus, &:hover, &$active': {
-            boxShadow: 'inherit',
-          },
+            height: 24,
+            width: 24,
+            color: 'rgba(131,58,180,1)',
+            backgroundColor: '#fff',
+            border: '2px solid currentColor',
+            marginTop: -8,
+            marginLeft: -12,
+            '&:focus, &:hover, &$active': {
+                boxShadow: 'inherit',
+            },
         },
         active: {},
         valueLabel: {
-          left: 'calc(-50% + 4px)',
+            left: 'calc(-50% + 4px)',
         },
         track: {
-          height: 8,
-          borderRadius: 4,
+            height: 8,
+            borderRadius: 4,
         },
         rail: {
-          height: 8,
-          borderRadius: 4,
+            height: 8,
+            borderRadius: 4,
         },
-      })(Slider);
+    })(Slider);
 
     return (
         <div className="add-alcohol-container">
@@ -93,15 +93,15 @@ export default function AddAlcohol() {
                     <input type="text" placeholder="Saisir un nom :" onChange={handleChange("nom")} />
                 </div>
                 <div>
-                    <TiBeer size="28px" id="0"  onClick={handleChange("type", 0)} />
+                    <TiBeer size="28px" id="0" onClick={handleChange("type", 0)} />
                     <FaCocktail size="28px" id="1" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
-                <Typography gutterBottom>Mets ton pourcentage</Typography>
-                <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20}  />
+                    <Typography gutterBottom>Mets ton pourcentage</Typography>
+                    <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
                 </div>
-                
-                <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add/></button>
+
+                <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add /></button>
             </div>
         </div>
     )
