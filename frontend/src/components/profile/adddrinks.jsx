@@ -32,19 +32,19 @@ export default function AddDrinks() {
         if (selectedAlcohol.type === '0') {
             return (
                 <div className="beers">
-                    <t><GiBeerBottle size="28px" /></t>
-                    <t><GiBeerBottle size="32px" /></t>
-                    <t><GiBeerBottle size="36px" /></t>
+                    <p><GiBeerBottle size="28px" /></p>
+                    <p><GiBeerBottle size="32px" /></p>
+                    <p><GiBeerBottle size="36px" /></p>
                 </div>
             )
         }
         else if (selectedAlcohol.type === '1') {
             return (
                 <div className="strong-drinks">
-                    <t><GiGlassShot size="28px" /></t>
-                    <t><CgGlassAlt size="28px" /></t>
-                    <t><CgGlassAlt size="32px" /></t>
-                    <t><CgGlassAlt size="36px" /></t>
+                    <p><GiGlassShot size="28px" /></p>
+                    <p><CgGlassAlt size="28px" /></p>
+                    <p><CgGlassAlt size="32px" /></p>
+                    <p><CgGlassAlt size="36px" /></p>
                 </div>
             )
         }
@@ -67,13 +67,9 @@ export default function AddDrinks() {
                         {alcoholsList.map((alcohol) => {
                             if (!alcohol.hidden) {
                                 return(
-                                    <MenuItem value={alcohol}>{alcohol.name}</MenuItem>
+                                    <MenuItem key={alcohol.aid} value={alcohol}>{alcohol.name}</MenuItem>
                                 )
                             }
-                            else
-                                return(
-                                    <MenuItem value={alcohol}>{alcohol.name}</MenuItem>
-                                )
                         })}
                     </Select>
                 </FormControl>

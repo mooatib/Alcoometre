@@ -2,9 +2,9 @@
     position: relative;
 }
 .user-drinks{
-    display: block;
+    display: inline;
 }
 .user-drinks .drinks{
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
 }

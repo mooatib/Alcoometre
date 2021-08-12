@@ -5,13 +5,13 @@
 }
 .alcohol-list{
     list-style-type: none;
+    display: inline;
 }
 .alcohol-list li{
     display: flex;
-    margin-top: 20px;
+    margin-top: 0px;
     cursor: pointer;
     align-items: center;
-    justify-content: left;
 }
 .alcohol-list p{
     margin-right: 20px;

@@ -19,8 +19,9 @@
 .beers{
     visibility: visible;
     max-height: 0;
+    display: flex;
 }
 
-.add-drink-form t :hover{
+.add-drink-form p :hover{
     animation: 0.5s ease-in-out anim-rotate1;
 }

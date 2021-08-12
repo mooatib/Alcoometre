@@ -35,7 +35,7 @@ export default function UserDrinks() {
             <ul className="user-drinks">
                 {userDrinks.map((drink) => {
                     return (
-                        <li className="drinks" key={drink.did}>
+                        <li className="drinks" key={drink.did + drink.date}>
                             <p>{renderType(drink.type)}</p>
                             <p>{drink.name}</p>
                             <p>{drink.quantity}cl</p>
