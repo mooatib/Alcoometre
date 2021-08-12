@@ -16,6 +16,8 @@ const authRoute = require('./routes/auth')
 const usersRoute = require('./routes/users')
 const alcoholRoute = require('./routes/alcohol')
 const drinksRoute = require('./routes/drinks')
+const trophyRoute = require('./routes/trophy')
+const userTrophyRoute = require('./routes/usertrophy')
 //
 app.use(cors(corsOptions))
 
@@ -28,6 +30,8 @@ app.use('/api/auth', authRoute)
 app.use('/api/users', usersRoute)
 app.use('/api/alcohol', alcoholRoute)
 app.use('/api/drinks', drinksRoute)
+app.use('/api/trophy', trophyRoute)
+app.use('/api/usertrophy', userTrophyRoute)
 
 //server
 app.listen(process.env.PORT, () => {
