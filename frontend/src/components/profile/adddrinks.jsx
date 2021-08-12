@@ -9,23 +9,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 export default function AddDrinks() {
     const [selectedAlcohol, setSelectedAlcohol] = useState("")
     const alcoholsList = useSelector((state) => state.alcoholsReducer)
     const [open, setOpen] = useState(false);
     /*     const dispatch = useDispatch() */
-
-    const theme = createTheme({
-        overrides: {
-            MuiFormControl: {
-                text : {
-                    color: 'white'
-                }
-            }
-        }
-    })
 
     const handleChange = (event) => {
         setSelectedAlcohol(event.target.value);
