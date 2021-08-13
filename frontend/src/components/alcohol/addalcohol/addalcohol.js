@@ -1,5 +1,5 @@
 import './addalcohol.css'
-import { Add, CenterFocusStrong } from '@material-ui/icons'
+import { Add } from '@material-ui/icons'
 import { TiBeer } from 'react-icons/ti'
 import { FaCocktail } from 'react-icons/fa'
 import { useState } from 'react'
@@ -7,8 +7,7 @@ import { useDispatch } from 'react-redux'
 import { addAlcohol } from '../../../actions/alcohols.action'
 import { getAlcohols } from '../../../actions/alcohols.action'
 import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 export default function AddAlcohol() {
     const [nameInput, setNameInput] = useState('')
@@ -178,7 +177,6 @@ export default function AddAlcohol() {
                         onChangeCommitted={pChange}
                     />
                 </div>
-
                 <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add /></button>
             </div>
         </div>

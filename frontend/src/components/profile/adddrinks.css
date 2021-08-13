@@ -2,25 +2,6 @@
     display: block;
     text-align: center;
 }
-.option{
-    width: 80%;
-    text-align-last: center;
-    text-align: center;
-
-}
-.add-drink-form > div{
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-.strong-drinks{
-    visibility: visible;
-    max-height: 0;
-}
-.beers{
-    visibility: visible;
-    max-height: 0;
-    display: flex;
-}
 
 .add-drink-form p :hover{
     animation: 0.5s ease-in-out anim-rotate1;

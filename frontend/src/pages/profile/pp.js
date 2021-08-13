@@ -14,10 +14,10 @@ export default function Profil() {
             <li><UserInfo/></li>
             <h2><MdTimeline/> Statistiques</h2>
             <li><UserStats/></li>
-            <h2><MdAdd/> Ajouter une boisson</h2>
-            <li><AddDrink/></li>
             <h2><FaCocktail/> Consommations</h2>
             <li><UserDrinks/></li>
+            <h2><MdAdd/> Ajouter une boisson</h2>
+            <li><AddDrink/></li>
             <h2><ImTrophy/> Trophées</h2>
             <li><UserTrophy/></li>
         </ul>

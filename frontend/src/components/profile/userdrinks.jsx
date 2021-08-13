@@ -21,7 +21,6 @@ export default function UserDrinks() {
 
     const handleClick = (did) => e => {
         dispatch()
-        dispatch()
     }
 
     function dateConvert(date){

@@ -1,23 +1,38 @@
 import './adddrinks.css'
 import { Add } from '@material-ui/icons'
-import { GiGlassShot, GiBeerBottle, GiWhiteBook } from 'react-icons/gi'
-import { CgGlassAlt } from 'react-icons/cg'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addDrink, deleteDrink } from '../../actions/drinks.actions'
+import { addUserDrink, getUserDrinks } from '../../actions/userdrinks.actions'
+import { getDrinks } from '../../actions/drinks.actions'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Slider from '@material-ui/core/Slider';
+import { withStyles } from '@material-ui/core/styles';
 
-export default function AddDrinks() {
+export default function AddDrinks(){
+    const userInfo = useSelector((state) => state.userReducer)
     const [selectedAlcohol, setSelectedAlcohol] = useState("")
+    const [selectedQuantity, setSelectedQuantity] = useState("")
     const alcoholsList = useSelector((state) => state.alcoholsReducer)
     const [open, setOpen] = useState(false);
-    /*     const dispatch = useDispatch() */
+    const dispatch = useDispatch()
 
-    const handleChange = (event) => {
+    
+    const handleClick = () => {
+        userInfo.foreach((user)=>{
+            dispatch(addUserDrink(user.uid, selectedAlcohol.aid, selectedQuantity))
+            dispatch(getUserDrinks(user.uid))
+            dispatch(getDrinks())
+        })
+
+    }
+    const alcoholChange = (event) => {
         setSelectedAlcohol(event.target.value);
+    };
+    const quantityChange = (event, value) => {
+        setSelectedQuantity(value);
     };
 
     const handleClose = () => {
@@ -28,32 +43,87 @@ export default function AddDrinks() {
         setOpen(true);
     };
 
-    const alcoholTypeRender = () => {
-        if (selectedAlcohol.type === '0') {
-            return (
-                <div className="beers">
-                    <p><GiBeerBottle size="28px" /></p>
-                    <p><GiBeerBottle size="32px" /></p>
-                    <p><GiBeerBottle size="36px" /></p>
-                </div>
-            )
+    const marks = [
+        {
+            value: 4,
+            label: '4cl',
+        },
+        {
+            value: 12.5,
+            label: '12.5cl',
+        },
+        {
+            value: 25,
+            label: '25cl',
+        },
+        {
+            value: 33,
+            label: '33cl',
+        },
+        {
+            value: 50,
+            label: '50cl',
+        },
+    ];
+    const DrinkForm = withStyles({
+        root: {
+            color: 'white',
+            width: '80%',
+        },
+        select: {
+            backgroundColor: 'black'
         }
-        else if (selectedAlcohol.type === '1') {
-            return (
-                <div className="strong-drinks">
-                    <p><GiGlassShot size="28px" /></p>
-                    <p><CgGlassAlt size="28px" /></p>
-                    <p><CgGlassAlt size="32px" /></p>
-                    <p><CgGlassAlt size="36px" /></p>
-                </div>
-            )
+    })(FormControl)
+
+    const DrinkSlider = withStyles({
+        root: {
+            color: 'white',
+            width: '80%',
+        },
+        thumb: {
+            height: 24,
+            width: 24,
+            color: 'rgba(131,58,180,1)',
+            backgroundColor: '#fff',
+            border: '2px solid currentColor',
+            marginTop: -8,
+            marginLeft: -12,
+            '&:focus, &:hover, &$active': {
+                boxShadow: 'inherit',
+            },
+        },
+        active: {},
+        valueLabel: {
+            left: 'calc(-50% + 4px)',
+        },
+        track: {
+            height: 8,
+            borderRadius: 4,
+        },
+        rail: {
+            height: 8,
+            borderRadius: 4,
+        },
+        mark: {
+            height: 14,
+            width: 3,
+            marginTop: -2,
+            color: "white",
+            backgroundColor: 'rgba(131,58,180,1)',
+        },
+        markLabel: {
+            color: 'white',
+        },
+        markActive: {
+            opacity: 1,
+            backgroundColor: 'currentColor',
         }
-    }
+    })(Slider);
 
     return (
         <div className="add-drink-container">
             <div className="add-drink-form">
-                <FormControl className="option">
+                <DrinkForm className="option">
                     <InputLabel id="demo-controlled-open-select-label" value="">Choisissez un alcool</InputLabel>
                     <Select
                         labelId="demo-controlled-open-select-label"
@@ -62,21 +132,32 @@ export default function AddDrinks() {
                         onClose={handleClose}
                         onOpen={handleOpen}
                         value={selectedAlcohol}
-                        onChange={handleChange}
+                        onChange={alcoholChange}
                     >
                         {alcoholsList.map((alcohol) => {
                             if (!alcohol.hidden) {
-                                return(
+                                return (
                                     <MenuItem key={alcohol.aid} value={alcohol}>{alcohol.name}</MenuItem>
                                 )
                             }
+                            else
+                                return (null)
                         })}
                     </Select>
-                </FormControl>
+                </DrinkForm>
                 <div>
-                    {alcoholTypeRender()}
+                    <DrinkSlider
+                        valueLabelDisplay="auto"
+                        aria-label="alcohol slider"
+                        defaultValue={selectedQuantity}
+                        min={4}
+                        max={50}
+                        step={0.5}
+                        marks={marks}
+                        onChangeCommitted={quantityChange}
+                    />
                 </div>
-                <button className="send-button" type="button" name="Ajouter"><Add /></button>
+                <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add /></button>
             </div>
         </div>
     )

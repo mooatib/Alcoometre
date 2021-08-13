@@ -37,7 +37,7 @@ export default function AlcoholsList() {
                         )
                     }
                     else
-                        return <p/>
+                        return (null)
                 })}
             </ul>
         </div>
