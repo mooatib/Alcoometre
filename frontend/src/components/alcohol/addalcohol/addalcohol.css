@@ -42,9 +42,11 @@
     opacity: 50%;
 }
 .selected{
+    width: 50%;
     opacity: 100%;
 }
 .not-selected{
+    width: 50%;
     cursor: pointer;
     opacity: 50%;
 }

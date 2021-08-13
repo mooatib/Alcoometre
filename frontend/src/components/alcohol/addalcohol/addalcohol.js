@@ -1,5 +1,5 @@
 import './addalcohol.css'
-import { Add } from '@material-ui/icons'
+import { Add, CenterFocusStrong } from '@material-ui/icons'
 import { TiBeer } from 'react-icons/ti'
 import { FaCocktail } from 'react-icons/fa'
 import { useState } from 'react'
@@ -13,9 +13,15 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 export default function AddAlcohol() {
     const [nameInput, setNameInput] = useState('')
     const [typeInput, setTypeInput] = useState('')
+    const [marks, setMarks] = useState('')
+    const [minMarks, setMinMarks] = useState('')
+    const [maxMarks, setMaxMarks] = useState('')
     const [percentageInput, setPercentageInput] = useState('')
     const dispatch = useDispatch()
 
+    const pChange = (event, value) => {
+        setPercentageInput(value)
+    }
 
     const handleClick = () => {
         if (!nameInput || (typeInput !== 0 && typeInput !== 1) || !percentageInput) {
@@ -37,24 +43,73 @@ export default function AddAlcohol() {
                 if (type === 0) {
                     document.getElementById('0').setAttribute("class", "selected")
                     document.getElementById('1').setAttribute("class", "not-selected")
+                    setMarks(beerMarks)
+                    setMinMarks(4)
+                    setMaxMarks(12)
                 }
                 else {
                     document.getElementById('0').setAttribute("class", "not-selected")
                     document.getElementById('1').setAttribute("class", "selected")
+                    setMarks(strongMarks)
+                    setMinMarks(12)
+                    setMaxMarks(75)
                 }
                 break;
             case "pourcentage":
+                console.log(e.value)
                 setPercentageInput(e.target.value);
                 break;
             default:
         }
     }
 
-    const useStyles = makeStyles((theme) => ({
+    const beerMarks = [
+        {
+          value: 8,
+          label: '8%',
+        },
+        {
+          value: 4,
+          label: '4%',
+        },
+        {
+          value: 6.5,
+          label: '6.5%',
+        },
+        {
+          value: 10,
+          label: '10%',
+        },
+        {
+          value: 12,
+          label: '12%',
+        },
+      ];
+    
+    const strongMarks = [
+        {
+          value: 12,
+          label: '12%',
+        },
+        {
+          value: 25,
+          label: '25%',
+        },
+        {
+          value: 40,
+          label: '40%',
+        },
+        {
+          value: 50,
+          label: '50%',
+        },
+        {
+          value: 75,
+          label: '75%',
+        },
+      ];
 
-    }));
-
-    const PrettoSlider = withStyles({
+    const AlcoholSlider = withStyles({
         root: {
             color: 'white',
             height: 8,
@@ -83,6 +138,20 @@ export default function AddAlcohol() {
             height: 8,
             borderRadius: 4,
         },
+        mark: {
+            height: 14,
+            width: 3,
+            marginTop: -2,
+            color: "white",
+            backgroundColor: 'rgba(131,58,180,1)',
+          },
+        markLabel: {
+            color: 'white',
+        },
+        markActive: {
+            opacity: 1,
+            backgroundColor: 'currentColor',
+        }
     })(Slider);
 
     return (
@@ -93,12 +162,21 @@ export default function AddAlcohol() {
                     <input type="text" placeholder="Saisir un nom :" onChange={handleChange("nom")} />
                 </div>
                 <div>
-                    <TiBeer size="28px" id="0" onClick={handleChange("type", 0)} />
-                    <FaCocktail size="28px" id="1" onClick={handleChange("type", 1)} />
+                    <TiBeer size="38px" id="0" onClick={handleChange("type", 0)} />
+                    <FaCocktail size="38px" id="1" onClick={handleChange("type", 1)} />
                 </div>
                 <div>
-                    <Typography gutterBottom>Mets ton pourcentage</Typography>
-                    <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+                    {/* <Typography gutterBottom>Mets ton pourcentage</Typography> */}
+                    <AlcoholSlider
+                        valueLabelDisplay="auto"
+                        aria-label="alcohol slider"
+                        defaultValue= {percentageInput}
+                        min={minMarks}
+                        max={maxMarks}
+                        step={0.5}
+                        marks={marks}
+                        onChangeCommitted={pChange}
+                    />
                 </div>
 
                 <button className="send-button" type="button" name="Ajouter" onClick={handleClick}><Add /></button>
