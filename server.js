@@ -12,7 +12,7 @@ var corsOptions = {
 const app = express()
 
 //Routes
-const authRoute = require('./routes/auth')
+const alcoholRateRoute = require('./routes/alcoholrate')
 const usersRoute = require('./routes/users')
 const alcoholRoute = require('./routes/alcohol')
 const drinksRoute = require('./routes/drinks')
@@ -26,7 +26,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static('client/build'))
 
-app.use('/api/auth', authRoute)
+app.use('/api/alcoholrate', alcoholRateRoute)
 app.use('/api/users', usersRoute)
 app.use('/api/alcohol', alcoholRoute)
 app.use('/api/drinks', drinksRoute)
