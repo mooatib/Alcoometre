@@ -1,8 +1,19 @@
 const router = require('express').Router()
 const db = require('../db/db.js')
 
+/* const time = []
+
+const f = (list) =>{
+    list.map((drink)=>{
+        date = new Date(drink.date)
+        deg = (drink.quantity*10*drink.percentage*0.8) / (0.7*drink.weight)
+        time.push({"date": date, "alohol": deg})
+    })
+    console.log(time)
+} */
+
 router.get('/list', (req, res, next) => {
-    const sql = `SELECT img, username, name, type, quantity, date from users
+    const sql = `SELECT img, username, name, type, quantity, did, date from users
                 JOIN drinks ON drinks.uid = users.uid
                 JOIN alcohol ON drinks.aid = alcohol.aid`
     const params = []
@@ -20,11 +31,14 @@ router.get('/userlist', (req, res, next) => {
     var data = {
         uid: req.query.uid
     }
-    const sql = `SELECT name, type, quantity, date from users
+
+    const sql = `SELECT name, weight, type, percentage, quantity, date from users
                 JOIN drinks ON drinks.uid = users.uid
                 JOIN alcohol ON drinks.aid = alcohol.aid
                 WHERE drinks.uid = ?`
+
     const params = [data.uid]
+
     db.all(sql, params, (err, result) => {
         if (err) {
             res.status(400).json({ "error": err.message })

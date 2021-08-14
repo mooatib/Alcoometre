@@ -10,12 +10,12 @@ import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
 
 export default function AddAlcohol() {
-    const [nameInput, setNameInput] = useState('')
-    const [typeInput, setTypeInput] = useState('')
-    const [marks, setMarks] = useState('')
-    const [minMarks, setMinMarks] = useState('')
-    const [maxMarks, setMaxMarks] = useState('')
-    const [percentageInput, setPercentageInput] = useState('')
+    const [nameInput, setNameInput] = useState([])
+    const [typeInput, setTypeInput] = useState([])
+    const [marks, setMarks] = useState([])
+    const [minMarks, setMinMarks] = useState()
+    const [maxMarks, setMaxMarks] = useState()
+    const [percentageInput, setPercentageInput] = useState(8)
     const dispatch = useDispatch()
 
     const pChange = (event, value) => {
@@ -27,6 +27,7 @@ export default function AddAlcohol() {
             alert("Veuillez remplir entierement le formulaire !")
         }
         else {
+            console.log(nameInput)
             dispatch(addAlcohol(nameInput, typeInput, percentageInput))
             dispatch(getAlcohols())
         }
@@ -156,7 +157,6 @@ export default function AddAlcohol() {
     return (
         <div className="add-alcohol-container">
             <div className="add-alcohol-form">
-                <t><Add /></t>
                 <div>
                     <input type="text" placeholder="Saisir un nom :" onChange={handleChange("nom")} />
                 </div>
@@ -168,7 +168,6 @@ export default function AddAlcohol() {
                     {/* <Typography gutterBottom>Mets ton pourcentage</Typography> */}
                     <AlcoholSlider
                         valueLabelDisplay="auto"
-                        aria-label="alcohol slider"
                         defaultValue= {percentageInput}
                         min={minMarks}
                         max={maxMarks}

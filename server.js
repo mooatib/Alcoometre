@@ -18,7 +18,7 @@ const alcoholRoute = require('./routes/alcohol')
 const drinksRoute = require('./routes/drinks')
 const trophyRoute = require('./routes/trophy')
 const userTrophyRoute = require('./routes/usertrophy')
-//
+
 app.use(cors(corsOptions))
 
 app.use(express.json())

@@ -14,17 +14,18 @@ import { withStyles } from '@material-ui/core/styles';
 export default function AddDrinks(){
     const userInfo = useSelector((state) => state.userReducer)
     const [selectedAlcohol, setSelectedAlcohol] = useState("")
-    const [selectedQuantity, setSelectedQuantity] = useState("")
+    const [selectedQuantity, setSelectedQuantity] = useState(0)
     const alcoholsList = useSelector((state) => state.alcoholsReducer)
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch()
 
     
     const handleClick = () => {
-        userInfo.foreach((user)=>{
+        userInfo.map((user)=>{
             dispatch(addUserDrink(user.uid, selectedAlcohol.aid, selectedQuantity))
             dispatch(getUserDrinks(user.uid))
             dispatch(getDrinks())
+            return null
         })
 
     }
@@ -69,9 +70,6 @@ export default function AddDrinks(){
         root: {
             color: 'white',
             width: '80%',
-        },
-        select: {
-            backgroundColor: 'black'
         }
     })(FormControl)
 
@@ -148,7 +146,6 @@ export default function AddDrinks(){
                 <div>
                     <DrinkSlider
                         valueLabelDisplay="auto"
-                        aria-label="alcohol slider"
                         defaultValue={selectedQuantity}
                         min={4}
                         max={50}

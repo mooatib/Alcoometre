@@ -37,7 +37,7 @@ export default function GroupStats() {
         >
             {data.map((dataArray, key)=>{
                 return (
-                    <VictoryLine
+                    <VictoryLine key={key}
                     name={`line${key}`}
                         style={{
                             data: { stroke: colors[key], strokeWidth: 4 },
