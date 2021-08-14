@@ -24,8 +24,8 @@ export default function UserDrinks() {
     }
 
     function dateConvert(date){
-        let current_datetime = new Date(date)
-        let formatted_date = current_datetime.getDay() + "/" + (current_datetime.getMonth() + 1) + " " + current_datetime.getHours() + "h" + current_datetime.getMinutes()
+        let current_datetime = new Date(date.replace(' ','T'))
+        let formatted_date = current_datetime.getDate() + "/" + (current_datetime.getMonth() + 1) + " " + current_datetime.getHours() + "h" + current_datetime.getMinutes()
         return formatted_date
       }
 

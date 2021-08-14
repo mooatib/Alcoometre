@@ -1,29 +1,58 @@
 import './userstats.css'
-import { VictoryChart, VictoryLine } from 'victory'
+import { VictoryChart, VictoryLine, VictoryAxis} from 'victory'
+import { useSelector } from 'react-redux'
 
 export default function UserStats() {
+    const userRate = useSelector((state) => state.userStatsReducer)
+    const data = []
 
-    const data = [
-        { date: '13/8 \n 12:00', alcohol: 0 },
-        { date: '13/8 \n 12:05', alcohol: 0.21 },
-        { date: '13/8 \n 12:10', alcohol: 0.68 },
-        { date: '13/8 \n 12:15', alcohol: 0.9 },
-        { date: '13/8 \n 12:20', alcohol: 1.2 },
-    ]
-
+    userRate.map((element) => {
+        data.push({ "g": element.alcohol_grams, "d": element.d })
+    })
+    
     return (
         <VictoryChart
             style={{
                 labels: { fontSize: 52, fill: 'white' },
             }}
         >
+            <VictoryAxis
+                style={{ 
+                    ticks: { 
+                        stroke: "white",
+                        size: 10,
+                    }, 
+                    tickLabels: { 
+                        fill: "white",
+                        fontSize: 18,
+                        fontWeight: "bolder"
+                    }, 
+                    axis: {
+                        stroke: 'black',
+                        height: 80
+                    }
+                }}
+                dependentAxis
+                />
+            <VictoryAxis
+                style={{ 
+                    tickLabels: { 
+                        fill: "white",
+                    }, 
+                    axis: {
+                        stroke: 'black',
+                        height: 8
+                    }
+                }}
+                tickValues={['']}
+            />
             <VictoryLine
                 style={{
                     data: { stroke: 'white', strokeWidth: 4 },
                 }}
                 data={data}
-                x="date"
-                y="alcohol"
+                x="d"
+                y="g"
             />
         </VictoryChart>
     )

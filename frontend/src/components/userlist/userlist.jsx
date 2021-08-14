@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getUser } from '../../actions/user.actions'
 import { getUserDrinks } from '../../actions/userdrinks.actions'
+import { getUserRate } from '../../actions/userstats.action'
 
 export default function UserList() {
     const usersList = useSelector((state) => state.usersReducer)
@@ -12,6 +13,7 @@ export default function UserList() {
     const handleClick = (user) => e => {
         dispatch(getUser(user.uid))
         dispatch(getUserDrinks(user.uid))
+        dispatch(getUserRate(user.uid, 4))
         history.push("/profil")
     }
 

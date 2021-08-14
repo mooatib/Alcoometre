@@ -20,7 +20,7 @@ const buildDataSet = (dataset, step) => {
     var alcohol_grams = 0
     var rd = 0.1 / step
 
-    for (let t = Date.parse('2021-08-12T10:14:36'); t <= Date.parse('2021-08-14T23:14:36'); t += 3600000 / step ){
+    for (let t = Date.parse('2021-08-14T14:14:36'); t <= Date.parse(new Date()); t += 3600000 / step ){
         dataset.forEach(element => { 
             if (t >= element.timestamp && element.ttl > 0) {
                 alcohol_grams += element.rm
@@ -30,7 +30,7 @@ const buildDataSet = (dataset, step) => {
         alcohol_grams -= rd
         if (alcohol_grams < 0)
             alcohol_grams = 0
-    
+        
         finaldataset.push({ alcohol_grams, d: new Date (t).toLocaleString()})
     }
     return finaldataset
