@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="./assets/mobile_icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="apple-touch-icon" href="./assets/mobile_icon.png" />
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -23,58 +23,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>Soûlac</title>
-  <style type="text/css">
-    body {
-      margin: 0;
-      padding: 0;
-      background: #505050;
-    }
-    .cup {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 180px;
-      border: 6px solid #262626;
-      border-top: 2px solid transparent;
-      border-radius: 15px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      background: url(https://image.ibb.co/fmHm66/wave.png);
-      background-position: 0px 350px;
-      background-repeat: repeat-x;
-      animation: filling 10s ease-in-out infinite;
-      box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
-    }
-
-    .cup:before {
-      content: '';
-      width: 50px;
-      height: 80px;
-      border: 6px solid #fff;
-      right: -57px;
-      top: 30px;
-      border-top-right-radius: 35px;
-      border-bottom-right-radius: 35px;
-    }
-
-    @keyframes filling {
-      50% {
-        background-position: 3000px 0px;
-      }
-
-      100% {
-        background-position: 6000px 350px;
-      }
-    }
-  </style>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-<!--   <div class="cup"></div> -->
-  <p class="page-info">Loading...</p>
+
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -101,5 +55,4 @@
     }
   </script>
 </body>
-
 </html>
