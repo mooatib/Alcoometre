@@ -9,6 +9,7 @@ import { ImTrophy } from 'react-icons/im'
 import { FaCocktail } from 'react-icons/fa'
 
 export default function Profil() {
+
     return (
         <ul className="profile-page">
             <li><UserInfo/></li>
