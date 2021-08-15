@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
 export default function UserStats() {
-    const userRate = useSelector((state) => state.userStatsReducer)
+    const userRate = useSelector((state) => state.statsReducer)
     const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
     const data = []
     userRate.map((element) => {
         data.push({ "g": element.alcohol_grams, "d": element.d })
     })
-
+    console.log(userRate)
     const [zoomDomain, setZoomDomain] = useState()
 
     function handleZoom(domain) {
@@ -62,12 +62,18 @@ export default function UserStats() {
                         tickLabels: {
                             fill: "white",
                         },
+                        tickLabels: {
+                            fill: "white",
+                            fontSize: 18,
+                            fontWeight: "bolder"
+                        },
                         axis: {
                             stroke: 'black',
                             height: 8
                         }
                     }}
-                    tickValues={['']}
+                    fixLabelOverlap={true}
+                    tickValues={[]}
                 />
                 <VictoryLine
                     style={{
@@ -80,9 +86,9 @@ export default function UserStats() {
             </VictoryChart>
             <VictoryChart
                 width={500}
-                height={90}
+                height={100}
                 scale={{ x: 'd' }}
-                padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
+                padding={{ top: 0, left: 50, right: 50, bottom: 45 }}
                 containerComponent={
                     <VictoryBrushContainer responsive={true}
                         brushDimension='x'
@@ -97,12 +103,18 @@ export default function UserStats() {
                         tickLabels: {
                             fill: "white",
                         },
+                        tickLabels: {
+                            fill: "white",
+                            fontSize: 18,
+                            fontWeight: "bolder"
+                        },
                         axis: {
                             stroke: 'black',
                             height: 8
                         }
                     }}
-                    tickValues={['']}
+                    fixLabelOverlap={true}
+                    tickValues={[]}
                 />
                 <VictoryLine
                     style={{

@@ -22,6 +22,8 @@ const store = createStore(
 store.dispatch(getUsers())
 store.dispatch(getAlcohols())
 store.dispatch(getDrinks())
+store.dispatch(getDrinks())
+
 
 ReactDOM.render(
   <Provider store={store}>

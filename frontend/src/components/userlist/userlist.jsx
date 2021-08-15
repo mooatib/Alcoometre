@@ -3,7 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getUser } from '../../actions/user.actions'
 import { getUserDrinks } from '../../actions/userdrinks.actions'
-import { getUserRate } from '../../actions/userstats.action'
+import { getUserRate } from '../../actions/stats.action'
 
 export default function UserList() {
     const usersList = useSelector((state) => state.usersReducer)
