@@ -4,7 +4,8 @@ const db = require('../db/db.js')
 router.get('/list', (req, res, next) => {
     const sql = `SELECT did, img, name, type, quantity, date from users
                 JOIN drinks ON drinks.uid = users.uid
-                JOIN alcohol ON drinks.aid = alcohol.aid`
+                JOIN alcohol ON drinks.aid = alcohol.aid
+                ORDER BY date DESC`
     const params = []
     db.all(sql, params, (err, result) => {
         if (err) {
@@ -24,7 +25,8 @@ router.get('/userlist', (req, res, next) => {
     const sql = `SELECT did, name, type, quantity, date from users
                 JOIN drinks ON drinks.uid = users.uid
                 JOIN alcohol ON drinks.aid = alcohol.aid
-                WHERE drinks.uid = ?`
+                WHERE drinks.uid = ?
+                ORDER BY date DESC`
     const params = [data.uid]
     db.all(sql, params, (err, result) => {
         if (err) {

@@ -24,5 +24,3 @@ for (let t = 0; t < 10; t += 1 / step) {
     point_list.push({ alcohol_grams, t })
 }
 console.log(point_list); */
-
-console.log(Date.parse(new Date()))

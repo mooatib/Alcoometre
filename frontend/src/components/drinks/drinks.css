@@ -1,13 +1,18 @@
-.group-drinks-container{
-    position: relative;
-}
 .group-drinks{
+    overflow: hidden;
     display: inline;
 }
-.group-drinks .drinks{
+.group-drinks div{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.group-drinks li{
     display: flex;
-    justify-content: space-around;
     align-items: center;
+}
+.group-drinks p{
+    margin-right: 20px;
+    width: 50px;
 }
 .group-drinks .drinks img{
     width: 32px;

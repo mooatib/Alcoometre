@@ -19,13 +19,14 @@ export default function GroupDrinks() {
 
     function dateConvert(date){
         let current_datetime = new Date(date.replace(' ','T'))
-        let formatted_date = current_datetime.getDay() + "/" + (current_datetime.getMonth() + 1) + " " + current_datetime.getHours() + "h" + current_datetime.getMinutes()
+        let formatted_date = current_datetime.getDate() + "/" + (current_datetime.getMonth() + 1) + " " + current_datetime.getHours() + "h" + current_datetime.getMinutes()
         return formatted_date
     }
 
     return (
         <div className="group-drinks-container">
             <ul className="group-drinks">
+                <div>
                 {getDrinks.map((drink) => {
                     return (
                         <li className="drinks" key={drink.did}>
@@ -37,6 +38,7 @@ export default function GroupDrinks() {
                         </li>
                     )
                 })}
+                </div>
             </ul>
         </div>
     )

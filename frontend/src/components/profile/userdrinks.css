@@ -1,10 +1,16 @@
-.user-drinks-container{
-    position: relative;
-}
 .user-drinks{
+    overflow: hidden;
     display: inline;
 }
-.user-drinks .drinks{
+.user-drinks div{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.user-drinks li{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+.user-drinks p{
+    margin-right: 10px;
+    width: 60px;
 }

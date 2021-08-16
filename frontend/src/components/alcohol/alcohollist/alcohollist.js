@@ -32,7 +32,7 @@ export default function AlcoholsList() {
                                 <p>{alcoholType(alcohol.type)}</p>
                                 <p className="alcohol-name">{alcohol.name}</p>
                                 <p className="alcohol-percent">{alcohol.percentage}%</p>
-                                <p onClick={handleClick(alcohol.aid)} ><Delete/></p>
+                                <p onClick={handleClick(alcohol.aid)} ><Delete style={{ fontSize: 28 }}/></p>
                             </li>
                         )
                     }

@@ -11,11 +11,11 @@ export default function UserDrinks() {
     const renderType = (type) =>{
         if(type === '0')
             return(
-                <TiBeer size="28px"/>
+                <TiBeer size="32px"/>
             )
         else
             return(
-                <FaCocktail size="28px"/>
+                <FaCocktail size="32px"/>
             )
     }
 
@@ -32,17 +32,19 @@ export default function UserDrinks() {
     return (
         <div className="user-drinks-container">
             <ul className="user-drinks">
-                {userDrinks.map((drink) => {
-                    return (
-                        <li className="drinks" key={drink.did + drink.date}>
-                            <p>{renderType(drink.type)}</p>
-                            <p>{drink.name}</p>
-                            <p>{drink.quantity}cl</p>
-                            <p>{dateConvert(drink.date)}</p>
-                            <p onClick={handleClick(drink.did)} ><Delete/></p>
-                        </li>
-                    )
-                })}
+                <div>
+                    {userDrinks.map((drink) => {
+                        return (
+                            <li className="drinks" key={drink.did + drink.date}>
+                                <p>{renderType(drink.type)}</p>
+                                <p>{drink.name}</p>
+                                <p>{drink.quantity}cl</p>
+                                <p>{dateConvert(drink.date)}</p>
+                                <p onClick={handleClick(drink.did)} ><Delete style={{ fontSize: 28 }}/></p>
+                            </li>
+                        )
+                    })}
+                </div>
             </ul>
         </div>
     )
