@@ -1,15 +1,15 @@
-import './groupstats.css'
+import './stats.css'
 import { VictoryChart, VictoryBar, VictoryStack, VictoryLine, VictoryLegend, createContainer, VictoryLabel, VictoryAxis, VictoryBrushContainer } from 'victory'
-import { useState } from 'react'
-import { useEffect } from 'react';
-
+import { useState, useEffect } from 'react'
+import {useDispatch} from 'react-redux'
+import updateUserRate from '../../../actions/user.actions'
 
 export default function GroupStats() {
     const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
     const colors = ["white", "yellow", "green", "black", "violet", "red", "blue", "orange", "pink", "grey"];
     const [dataRate, setDataRate] = useState([])
-    const [dataBars, setDataBars] = useState([])
     const [zoomDomain, setZoomDomain] = useState()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const apiUrl = `${process.env.REACT_APP_API_URL}api/stats/grouprate?step=${4}`;
@@ -18,12 +18,12 @@ export default function GroupStats() {
             .then((data) => setDataRate(data));
     }, [setDataRate])
 
-    useEffect(() => {
+/*     useEffect(() => {
         const apiUrl = `${process.env.REACT_APP_API_URL}api/stats/groupbars`;
         fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => setDataBars(data));
-    }, [setDataBars])
+    }, [setDataBars]) */
 
     function handleZoom(domain) {
         setZoomDomain(domain)
@@ -44,7 +44,7 @@ export default function GroupStats() {
                             zoomDimension="x"
                             zoomDomain={zoomDomain}
                             onZoomDomainChange={handleZoom}
-                            labels={({ datum }) => ` ${Math.round((datum.alcohol_grams + Number.EPSILON) * 100) / 100}`}
+                            labels={({ datum }) => datum.alcohol_grams}
                         />
                     }
                 >

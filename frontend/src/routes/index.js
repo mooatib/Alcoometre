@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from '../../pages/home/hp';
-import Profil from '../../pages/profile/pp';
-import Group from '../../pages/group/gp';
-import Alcohol from '../../pages/alcohol/ap';
-import Background from '../background/background';
-import Botbar from '../botbar/botbar';
-import Topbar from '../topbar/topbar';
+import Home from '../pages/home/hp';
+import Profil from '../pages/profile/pp';
+import Group from '../pages/userlist/gp';
+import Alcohol from '../pages/alcohol/ap';
+import Background from '../components/background/background';
+import Botbar from '../components/botbar/botbar';
+import Topbar from '../components/topbar/topbar';
 
 function index() {
     return (
