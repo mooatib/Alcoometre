@@ -1,42 +1,46 @@
-.topbar-container{
+#topbar-container{
     height: 60px;
     width: 100%;
-    background: linear-gradient(135deg,rgba(253,29,29,1) 0%, rgba(131,58,180,1) 100%);
     display: flex;
-    align-items: center;
+    align-items:center;
     position: fixed;
     z-index: 2;
     top: 0;
+    transition: background-color 0.5s ease-in-out;
 }
-
-.topbar-left{
-    flex: 1.75;
-    height: 40px;
-    margin-right: 5%;
-    color: rgba(131,58,180,1);
+.scrolled{
     background-color: white;
-    border-radius: 25px;
-    box-shadow: 1px 1px 5px black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.315);
 }
-
-.topbar-left span{
-    font-size: 24px;
-    font-weight: bold;
+.text-scrolled{
     color: rgb(131, 58, 180);
-    cursor: pointer;
 }
 
-.topbar-right{
-    flex: 2.5;
-}
-.topbar-right span{
-    font-size: large;
+#topbar-left{
+    margin-left: 25px;
+    flex: 1.75;
     color: white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#name{
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color, color, 0.5s ease-in-out;
+}
+
+#topbar-right{
+    flex: 2.5;
+    color: white;
+    background: 0;
+}
+#motd{
+    transition: background-color, color, 0.5s ease-in-out;
+    font-size: 24px;
     font-weight: bold;
     margin-right: 30px;
     margin-left: 30px;
 }
+
+

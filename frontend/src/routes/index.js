@@ -7,8 +7,8 @@ import Background from '../components/background/background';
 import Botbar from '../components/botbar/botbar';
 import Topbar from '../components/topbar/topbar';
 
-function index() {
-    return (
+export default function index() {
+      return (
         <Router>
             <div>
                 <Background />
@@ -25,5 +25,3 @@ function index() {
         </Router>
     )
 }
-
-export default index
