@@ -3,33 +3,14 @@ const db = require('../db/db.js')
 
 const formatDate = (d) => {
     const date = new Date(d)
-    const datestring = date.toISOString().split('T')[0] + ' ' + date.getHours() + ":" + date.getMinutes()+ ":" + date.getSeconds()
+    const datestring = date.toISOString().split('T')[0] + ' ' + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
     return datestring
 }
 
 const f = (rate, username,) => {
     const sql = `UPDATE users SET alcohol = ? WHERE username = ?`
     const params = [username, rate]
-    db.run(sql, params, (err,) => {})
-}
-
-const groupbars = (data) => {
-    const dataset = []
-    for (var x = 1; x <= 10; x++) {
-        var ns = 0, nb = 0, user = ''
-        const userdataset = data.filter(function (e) {
-            return e.uid == x
-        })
-        userdataset.map((element) => {
-            if (element.type === '0')
-                nb = element.n
-            else
-                ns = element.n
-            user = element.username
-        })
-        dataset.push({ username: user, nbeers: nb, nstrong: ns })
-    }
-    return dataset
+    db.run(sql, params, (err,) => { })
 }
 
 const grouprate = (data, step, dateinit) => {
@@ -52,7 +33,6 @@ const calcRate = (data, step) => {
             sex = 0.7
         date = new Date(element.date)
         deg = (element.quantity * 10 * element.percentage / 100 * 0.8) / (sex * element.weight)
-        console.log(deg)
         dataset.push({ username: element.username, timestamp: date, rm: deg / step, ttl: 3600000 })
     })
     return dataset
@@ -76,7 +56,7 @@ const buildDataSet = (data, step, dateinit) => {
             alcohol_grams = 0
         alcohol_grams = Math.round((alcohol_grams + Number.EPSILON) * 100) / 100
         const date = new Date(t)
-        dataset.push({ user, alcohol_grams, d: date.getUTCDate() + "/" + (date.getUTCMonth() + 1) + '\n' + date.getHours() + ":" + date.getMinutes() })    
+        dataset.push({ user, alcohol_grams, d: date.getUTCDate() + "/" + (date.getUTCMonth() + 1) + '\n' + date.getHours() + ":" + date.getMinutes() })
     }
     f(user, alcohol_grams)
     return dataset
@@ -128,10 +108,11 @@ router.get('/grouprate', (req, res, next) => {
     })
 })
 router.get('/groupbars', (req, res, next) => {
-    const sql = `SELECT users.uid, username,type, COUNT (did) AS n FROM users 
+    const sql = `SELECT username, COUNT (CASE type when '0' then 1 else null end) AS nb, COUNT (CASE type when '1' then 1 else null end) AS ns FROM users 
                 JOIN drinks ON drinks.uid = users.uid
                 JOIN alcohol ON drinks.aid = alcohol.aid
-                GROUP BY username, type`
+                GROUP BY username
+                ORDER BY users.uid ASC`
     const params = []
     db.all(sql, params, (err, result) => {
         if (err) {
@@ -139,8 +120,7 @@ router.get('/groupbars', (req, res, next) => {
             return
         }
         const array = JSON.parse(JSON.stringify(result))
-        const dataset = groupbars(array)
-        res.status(200).send(dataset)
+        res.status(200).send(array)
     })
 })
 

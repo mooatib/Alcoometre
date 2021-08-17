@@ -1,15 +1,23 @@
 import './stats.css'
-import { VictoryChart, VictoryBar, VictoryStack, VictoryLine, VictoryLegend, createContainer, VictoryLabel, VictoryAxis, VictoryBrushContainer } from 'victory'
+import { VictoryChart, VictoryLine, VictoryLegend, createContainer, VictoryPie, VictoryLabel, VictoryAxis, VictoryBrushContainer, VictoryStack, VictoryBar, VictoryVoronoiContainer } from 'victory'
 import { useState, useEffect } from 'react'
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import updateUserRate from '../../../actions/user.actions'
 
 export default function GroupStats() {
     const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
     const colors = ["white", "yellow", "green", "black", "violet", "red", "blue", "orange", "pink", "grey"];
+    const [dataBars, setDataBars] = useState([])
     const [dataRate, setDataRate] = useState([])
     const [zoomDomain, setZoomDomain] = useState()
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        const apiUrl = `${process.env.REACT_APP_API_URL}api/stats/groupbars`;
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => setDataBars(data));
+    }, [setDataBars])
 
     useEffect(() => {
         const apiUrl = `${process.env.REACT_APP_API_URL}api/stats/grouprate?step=${4}`;
@@ -18,12 +26,10 @@ export default function GroupStats() {
             .then((data) => setDataRate(data));
     }, [setDataRate])
 
-/*     useEffect(() => {
-        const apiUrl = `${process.env.REACT_APP_API_URL}api/stats/groupbars`;
-        fetch(apiUrl)
-            .then((response) => response.json())
-            .then((data) => setDataBars(data));
-    }, [setDataBars]) */
+    const dataPie = []
+    dataBars.map((data) => {
+        dataPie.push({ username: data.username, n: data.nb + data.ns })
+    })
 
     function handleZoom(domain) {
         setZoomDomain(domain)
@@ -37,7 +43,6 @@ export default function GroupStats() {
                 <VictoryChart
                     width={500}
                     height={400}
-                    padding={{ top: 100, left: 50, right: 50, bottom: 45 }}
                     containerComponent={
                         <VictoryZoomVoronoiContainer responsive={true}
                             mouseFollowTooltips
@@ -48,19 +53,6 @@ export default function GroupStats() {
                         />
                     }
                 >
-                    <VictoryLegend x={0} y={10}
-                        title="Legend"
-                        centerTitle
-                        orientation="horizontal"
-                        gutter={115}
-                        data={[
-                            { name: "dibdib", symbol: { fill: colors[0] } },
-                            { name: "Two", symbol: { fill: "orange" } },
-                            { name: "Three", symbol: { fill: "gold" } }
-                        ]}
-                        style={{ border: { stroke: "white" }, title: { fontSize: 20, fill: 'white' }, data: { fill: 'white' } }}
-
-                    />
                     <VictoryAxis
                         style={{
                             ticks: {
@@ -83,10 +75,7 @@ export default function GroupStats() {
                         style={{
                             tickLabels: {
                                 fill: "white",
-                                angle: 0
-                            },
-                            tickLabels: {
-                                fill: "white",
+                                angle: 0,
                                 fontSize: 18,
                                 fontWeight: "bolder"
                             },
@@ -170,6 +159,57 @@ export default function GroupStats() {
                         )
                     })}
                 </VictoryChart>
+            </div>
+            <div>
+                <VictoryChart
+                    domainPadding={10}
+                    containerComponent={
+                        <VictoryVoronoiContainer responsive={true}
+                            labels={({ datum }) => `${datum.nb}, ${datum.ns}`}
+                        />
+                    }
+                >
+                    <VictoryAxis
+                        style={{
+                            axis: {stroke: "transparent"}, 
+                            ticks: {stroke: "transparent"},
+                            tickLabels: { fill:"transparent"} 
+                        }}
+                        dependentAxis
+                        />
+                    <VictoryAxis
+                        style={{
+                            tickLabels: {
+                                fill: "white",
+                                fontSize: 18,
+                                fontWeight: "bolder",
+                                angle: -45,
+                                textAnchor: "middle",
+                                padding: 1
+                            },
+                            axis: {
+                                stroke: 'black',
+                                height: 8
+                            }
+                        }}
+                    />
+                    <VictoryStack colorScale={"red"}>
+                        <VictoryBar data={dataBars} x="username" y="nb" />
+                        <VictoryBar data={dataBars} x="username" y="ns" />
+                    </VictoryStack>
+                </VictoryChart>
+            </div>
+            <div>
+                <VictoryPie
+                    width={400} height={400}
+                    innerRadius={85} labelRadius={160}
+                    data={dataPie} x="username" y="n"
+                    labels={({ datum }) => `${datum.username}\n ${datum.n}`}
+                    colorScale={["white", "yellow", "green", "black", "violet", "red", "blue", "orange", "pink", "grey"]}
+                    style={
+                        { labels: { fontSize: 18, fill: "white" } }
+                    }
+                />
             </div>
         </div>
     )
