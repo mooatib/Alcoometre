@@ -27,7 +27,7 @@
     font-size: 32px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color, color, 0.5s ease-in-out;
+    transition: color, 0.5s ease-in-out;
 }
 
 #topbar-right{
@@ -36,11 +36,15 @@
     background: 0;
 }
 #motd{
-    transition: background-color, color, 0.5s ease-in-out;
     font-size: 24px;
     font-weight: bold;
     margin-right: 30px;
     margin-left: 30px;
+    transition: color, 0.5s ease-in-out;
+}
+#motd::after{
+    content: 'motd';
+    animation: anim-text1 infinite 80s;
 }
 
 

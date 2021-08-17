@@ -1,6 +1,5 @@
 import './topbar.css'
 import { FaUmbrellaBeach } from 'react-icons/fa'
-import { useState, useEffect } from 'react'
 
 export default function Topbar() {
     window.onscroll = function() {

@@ -88,6 +88,7 @@ export default function GroupStats() {
                         tickValues={[]}
                     />
                     {dataRate.map((dataArray, key) => {
+                        console.log(dataArray)
                         return (
                             <VictoryLine key={key}
                                 name={`line${key}`}

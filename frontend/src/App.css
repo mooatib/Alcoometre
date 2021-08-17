@@ -102,3 +102,38 @@ button:hover {
       transform: translateX(-1px);
   }
 }
+@keyframes anim-text1{
+  0% {
+      content: 'test 1'
+  }
+  10% {
+      content: 'test 2'
+  }
+  20% {
+      content: 'test 3'
+  }
+  30% {
+      content: 'test 4'
+  }
+  40% {
+      content: 'test 5'
+  }
+  50% {
+      content: 'test 6'
+  }
+  60% {
+      content: 'test 7'
+  }
+  70% {
+      content: 'test 8'
+  }
+  80% {
+      content: 'test 9'
+  }
+  90% {
+      content: 'test 10'
+  }
+  100% {
+      content: 'test 11'
+  }
+}
