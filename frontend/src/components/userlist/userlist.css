@@ -6,6 +6,13 @@
 .user-list{
     list-style-type: none;
 }
+.username{
+    min-width: 125px;
+}
+.user-list p {
+    display: inline-block;
+    width: 96px;
+}
 .user{
     display: block;
     margin-top: 20px;

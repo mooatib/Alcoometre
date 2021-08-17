@@ -29,6 +29,24 @@ router.get('/info', (req, res, next) => {
         res.status(200).send(array)
     })
 })
+router.post('/updaterate', (req, res, next) => {
+    var data = {
+        rate: req.query.alcohol,
+        username: req.query.username
+    }
+    const sql = `UPDATE users SET alcohol = ? WHERE username = ?`
+    const params = [data.rate, data.username]
+
+    db.run(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ "error": err.message })
+            return
+        }
+        res.json({
+            "data": result
+        })
+    })
+})
 
 
 module.exports = router

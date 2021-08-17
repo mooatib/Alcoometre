@@ -1,8 +1,8 @@
 import './hp.css'
 import { FaCocktail } from 'react-icons/fa'
 import {MdTimeline} from 'react-icons/md'
-import GroupDrinks from '../../components/drinks/drinks'
-import GroupStats from "../../components/group/groupstats"
+import GroupDrinks from '../../components/group/drinks/drinks'
+import GroupStats from "../../components/group/stats/stats.jsx"
 
 export default function Home() {
     return (

@@ -1,6 +1,12 @@
 const router = require('express').Router()
 const db = require('../db/db.js')
 
+const f = (rate, username,) => {
+    const sql = `UPDATE users SET alcohol = ? WHERE username = ?`
+    const params = [username, rate]
+    db.run(sql, params, (err,) => {})
+}
+
 const groupbars = (data) => {
     const dataset = []
     for (var x = 1; x <= 10; x++) {
@@ -51,7 +57,7 @@ const buildDataSet = (data, step) => {
     var alcohol_grams = 0
     var rd = 0.1 / step
     var user = null
-    for (let t = new Date().setDate(now.getDate()-1); t <= Date.parse(now); t += 3600000 / step) {
+    for (let t = new Date().setDate(now.getDate() - 1); t <= Date.parse(now); t += 3600000 / step) {
         data.forEach(element => {
             user = element.username
             if (t >= element.timestamp && element.ttl > 0) {
@@ -62,9 +68,11 @@ const buildDataSet = (data, step) => {
         alcohol_grams -= rd
         if (alcohol_grams < 0)
             alcohol_grams = 0
+        alcohol_grams = Math.round((alcohol_grams + Number.EPSILON) * 100) / 100
         const date = new Date(t)
-        dataset.push({ user, alcohol_grams, d: date.getUTCDate() + "/" + (date.getUTCMonth() + 1) + '\n' + date.getHours() + ":" + date.getMinutes() })
+        dataset.push({ user, alcohol_grams, d: date.getUTCDate() + "/" + (date.getUTCMonth() + 1) + '\n' + date.getHours() + ":" + date.getMinutes() })    
     }
+    f(user, alcohol_grams)
     return dataset
 }
 
@@ -73,7 +81,7 @@ router.get('/userrate', (req, res, next) => {
         uid: req.query.uid,
         step: req.query.step
     }
-    const sql = `SELECT did, sex, weight, percentage, quantity, date from users
+    const sql = `SELECT did, username, sex, weight, percentage, quantity, date from users
                 JOIN drinks ON drinks.uid = users.uid
                 JOIN alcohol ON drinks.aid = alcohol.aid
                 WHERE drinks.uid = ?`
