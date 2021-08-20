@@ -6,6 +6,7 @@ import { HiUserGroup } from 'react-icons/hi'
 import { useHistory } from 'react-router-dom'
 
 export default function Botbar() {
+
     let history = useHistory()
 
     const handleClick = (path) => e => {
@@ -21,7 +22,7 @@ export default function Botbar() {
                 <FaBeer size="32px" />
             </div>
             <div className="botbar-icon-item" title="Accueil" onClick={handleClick("/")}>
-                <FaHome size="32px" />
+                <img alt= "img "src="assets/mobile_icon.png"/>
             </div>
             <div className="botbar-icon-item" title="Classement" onClick={handleClick("/classement")}>
                 <IoPodium size="32px" />

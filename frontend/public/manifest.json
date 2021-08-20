@@ -14,9 +14,10 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/mobile_icon.png",
+      "src": "/assets/mobile_icon_512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "http://81.250.83.25:3000",

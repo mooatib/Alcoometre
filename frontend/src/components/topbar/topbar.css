@@ -10,7 +10,7 @@
 }
 .scrolled{
     background-color: white;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.315);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
 }
 .text-scrolled{
     color: rgb(131, 58, 180);
@@ -31,20 +31,30 @@
 }
 
 #topbar-right{
-    flex: 2.5;
+    flex: 1.75;
     color: white;
     background: 0;
 }
-#motd{
-    font-size: 24px;
+#topbar-right > span{
+    flex: 1.75;
+    background: 0;
+    font-size: 20px;
     font-weight: bold;
-    margin-right: 30px;
-    margin-left: 30px;
+}
+#user-motd{
     transition: color, 0.5s ease-in-out;
 }
-#motd::after{
-    content: 'motd';
+#user-motd::after{
+    content: '';
     animation: anim-text1 infinite 80s;
 }
+#status-motd{
+    transition: color, 0.5s ease-in-out;
+}
+#status-motd::after{
+    content: '';
+    animation: anim-text2 infinite 80s;
+}
+
 
 

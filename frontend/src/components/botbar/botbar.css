@@ -27,14 +27,11 @@
 .botbar-icon-item:hover{
     animation: 0.5s ease-in-out anim-translate1;
 }
-
-.botbar-img{
+.botbar-icon-item > img{
     width: 45px;
     height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
     cursor: pointer;
-    border: 3px solid rgba(131,58,180,1);
+    border: 4px solid rgba(131,58,180,1);
 }
 .botbar-img:hover{
     animation: 0.5s ease-in-out anim-rotate1;
