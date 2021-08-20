@@ -1,0 +1,8 @@
+.users{
+    display: flex;
+    position: relative;
+    color: white;
+    margin-bottom: 40px;
+    justify-content: center;
+    margin-right: 40px;
+}

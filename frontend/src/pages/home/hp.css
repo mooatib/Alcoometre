@@ -1,9 +1,9 @@
 .home-page{
     display: block;
+    position: relative;
     color: white;
-    list-style-type: none;
     justify-content: center;
-    width: 80%;
+    margin-right: 40px;
 }
 
 .home-page > li{

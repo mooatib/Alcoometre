@@ -1,8 +1,8 @@
 import './userinfo.css'
 import { useSelector } from "react-redux"
-import {GiWeight, GiWeightLiftingUp} from 'react-icons/gi'
+import { GiWeight, GiWeightLiftingUp } from 'react-icons/gi'
 /* import {BsGraphUp, BsGraphDown} from 'react-icons/bs' */
-import {IoWater} from 'react-icons/io5'
+import { IoWater } from 'react-icons/io5'
 
 
 export default function UserInfo() {
@@ -18,23 +18,23 @@ export default function UserInfo() {
                                 Bonjour {user.username} !
                             </h3>
                         </li>
+                        <li>
+                            <img alt="img" src={user.img} />
+                        </li>
                         <div className="user-info-list">
                             <li>
-                                <img alt="img" src={user.img} />
-                            </li>
-                            <li>
                                 <p>
-                                    <GiWeight size="20px"/> {user.weight} Kg
+                                    <GiWeight size="20px" /> {user.weight} Kg
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                <GiWeightLiftingUp size="20px"/> {user.resistance}
+                                    <GiWeightLiftingUp size="20px" /> {user.resistance}
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                <IoWater size="20px"/> {user.alcohol} g/L
+                                    <IoWater size="20px" /> {user.alcohol} g/L
                                 </p>
                             </li>
                         </div>

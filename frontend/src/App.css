@@ -34,7 +34,10 @@ ul{
 
 img{
   border-radius: 50%;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.192);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+}
+body{
+  margin-top: 80px;
 }
 
 button{
@@ -44,19 +47,10 @@ button{
   cursor: pointer;
   background-color: rgba(66, 28, 28, 0);
   transition: transform, 0.5s ease-in-out 0.15s;
-  }
+}
 
 button:hover {
     animation: 0.5s ease-in-out anim-translate1;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /*ANIMATIONS*/
@@ -104,36 +98,71 @@ button:hover {
 }
 @keyframes anim-text1{
   0% {
-      content: 'test 1'
+      content: 'dibdib '
   }
   10% {
-      content: 'test 2'
+      content: 'teteleking '
   }
   20% {
-      content: 'test 3'
+      content: 'chocho '
   }
   30% {
-      content: 'test 4'
+      content: 'bastien '
   }
   40% {
-      content: 'test 5'
+      content: 'léa '
   }
   50% {
-      content: 'test 6'
+      content: 'flo '
   }
   60% {
-      content: 'test 7'
+      content: 'victor '
   }
   70% {
-      content: 'test 8'
+      content: 'piotr '
   }
   80% {
-      content: 'test 9'
+      content: 'pierre lapin '
   }
   90% {
-      content: 'test 10'
+      content: 'gabi '
   }
   100% {
-      content: 'test 11'
+      content: 'le groupe '
+  }
+}
+@keyframes anim-text2{
+  0% {
+      content: 'est a'
+  }
+  10% {
+    content: 'est b'
+  }
+  20% {
+    content: 'est c'
+  }
+  30% {
+    content: 'est d'
+  }
+  40% {
+      content: 'est e'
+  }
+  50% {
+      content: 'est f'
+  }
+  60% {
+      content: 'est g'
+  }
+  70% {
+      content: 'est h'
+  }
+  80% {
+      content: 'est i'
+  }
+  90% {
+      content: 'est j'
+  }
+  100% {
+      content: 'est k'
   }
 }

@@ -1,11 +1,11 @@
 .user-info-list{
     display: flex;
+    justify-content: space-evenly;
 }
-.user-info-list p{
-    margin-right: 15px;
-    font-style: italic;
+.user-info-list p {
+    margin-right: 0px;
 }
-.user-info-list img{
+.user-info img{
     position: absolute;
     border-radius: 50%;
     top: -0px;
@@ -13,6 +13,6 @@
     width: 64px;
 }
 
-.user-info-list img:hover{
+.user-info img:hover{
     animation: normal 1s anim-rotate1;
 }

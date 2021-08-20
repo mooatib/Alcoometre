@@ -6,11 +6,10 @@
     justify-content: center;
 }
 .add-alcohol-form{
-    display: block;
     text-align: center;
 }
 
-.add-alcohol-form input{
+.add-alcohol-form > input{
     height: 30px;
     border-radius: 15px;
     text-align: center;
@@ -19,12 +18,12 @@
     color: white;
 }
 
-.add-alcohol-form div{
+.add-alcohol-form > div{
     display: block;
     margin-bottom: 10px;
     transition: visibility, 0.5s ease-in-out 0.15s;
 }
-.add-alcohol-form button{
+.add-alcohol-form > button{
     border: none;
     color: white;
     text-decoration: none;

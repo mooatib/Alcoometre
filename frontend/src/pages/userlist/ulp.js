@@ -1,9 +1,9 @@
-import './gp.css'
+import './ulp.css'
 import UserList from "../../components/userlist/userlist"
 
-export default function Group() {
+export default function Users() {
     return (
-        <div className="group">
+        <div className="users">
             <UserList />
         </div>
     )

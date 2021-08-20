@@ -1,10 +1,9 @@
 .profile-page{
     display: block;
+    position: relative;
     color: white;
-    list-style-type: none;
     justify-content: center;
-    width: 80%;
-    margin-bottom: 40px;
+    margin-right: 40px;
 }
 
 .profile-page > li{

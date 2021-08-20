@@ -1,25 +1,18 @@
-.user-list-container{
-    position: relative;
-    color: white;
-    margin-bottom: 40px;
-}
 .user-list{
-    list-style-type: none;
+    width: 100%;
 }
 .username{
     min-width: 125px;
 }
-.user-list p {
-    display: inline-block;
+.user-list > p {
     width: 96px;
 }
 .user{
-    display: block;
+    display: flex;
     margin-top: 20px;
     padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 80%;
     background-color: rgba(0, 0, 0, 0.301);
     border-radius: 5px;
     cursor: pointer;
